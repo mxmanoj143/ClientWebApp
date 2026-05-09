@@ -1,0 +1,105 @@
+{
+  "theme": "light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) - Modified for Industrial Premium",
+  "brand": {
+    "name": "Revanth Concrete Products",
+    "parent_company": "Maharudra Precast Pvt Ltd",
+    "tagline": "Shaping Strength, Delivering Trust",
+    "vibe": "Premium, modern, architectural, reliable, industrial yet luxurious."
+  },
+  "colors": {
+    "background": "#FFFFFF",
+    "surface": "#F1F5F9",
+    "surface_glass": "rgba(255, 255, 255, 0.7)",
+    "primary": "#0F172A",
+    "secondary": "#475569",
+    "accent": "#EA580C",
+    "border": "#E2E8F0"
+  },
+  "typography": {
+    "headings_font": "Cabinet Grotesk, sans-serif",
+    "body_font": "Satoshi, sans-serif",
+    "import_instruction": "Import Cabinet Grotesk and Satoshi from Fontshare via CSS @import in index.css.",
+    "scale": {
+      "h1": "text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#0F172A]",
+      "h2": "text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A]",
+      "h3": "text-2xl md:text-3xl font-bold text-[#0F172A]",
+      "body": "text-base leading-relaxed text-[#475569]",
+      "overline": "text-sm uppercase tracking-[0.2em] font-bold text-[#EA580C]"
+    }
+  },
+  "layout_and_spacing": {
+    "philosophy": "Architectural grid with generous spacing. Mix brutalist functionality with premium glassmorphism overlays.",
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32",
+    "grid_system": "Use bento grid (grid-cols-1 md:grid-cols-8 lg:grid-cols-12) for visual interest."
+  },
+  "components": {
+    "glassmorphism_cards": {
+      "classes": "backdrop-blur-xl bg-white/70 border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-2xl",
+      "usage": "Use for feature cards, product categories, and floating stat widgets over images."
+    },
+    "buttons": {
+      "primary": "bg-[#EA580C] text-white hover:bg-[#C2410C] transition-colors rounded-none px-8 py-4 font-bold tracking-wide",
+      "secondary": "backdrop-blur-md bg-white/50 border border-[#0F172A]/10 text-[#0F172A] hover:bg-white transition-colors rounded-none px-8 py-4 font-bold"
+    },
+    "navbar": {
+      "style": "Sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-[#0F172A]/5",
+      "elements": "Logo left, Desktop links center, 'Get Quote' CTA right."
+    },
+    "floating_whatsapp": {
+      "style": "Fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform cursor-pointer"
+    }
+  },
+  "media": {
+    "images": [
+      {
+        "category": "hero_background",
+        "url": "https://images.unsplash.com/photo-1759802805758-054116467e0a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBjb25jcmV0ZSUyMGFyY2hpdGVjdHVyZSUyMGluZnJhc3RydWN0dXJlfGVufDB8fHx8MTc3ODMxMjQwMnww&ixlib=rb-4.1.0&q=85",
+        "description": "Concrete structure against blue sky, modern architecture"
+      },
+      {
+        "category": "hero_alternate",
+        "url": "https://images.unsplash.com/photo-1759955074170-026d882ef011?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBjb25jcmV0ZSUyMGFyY2hpdGVjdHVyZSUyMGluZnJhc3RydWN0dXJlfGVufDB8fHx8MTc3ODMxMjQwMnww&ixlib=rb-4.1.0&q=85",
+        "description": "Modern concrete architecture with geometric shapes"
+      },
+      {
+        "category": "product_pavers",
+        "url": "https://images.unsplash.com/photo-1755778803577-5ea0e90ffd1d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxjb25jcmV0ZSUyMHBhdmluZyUyMGJsb2NrcyUyMGFuZCUyMHBpcGVzJTIwbWFudWZhY3R1cmluZ3xlbnwwfHx8fDE3NzgzMTI0MDJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Pattern of concrete pavers"
+      },
+      {
+        "category": "product_blocks",
+        "url": "https://images.unsplash.com/photo-1631719606912-e90abc91683b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHw0fHxjb25jcmV0ZSUyMHBhdmluZyUyMGJsb2NrcyUyMGFuZCUyMHBpcGVzJTIwbWFudWZhY3R1cmluZ3xlbnwwfHx8fDE3NzgzMTI0MDJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Cement blocks"
+      },
+      {
+        "category": "project_bridge",
+        "url": "https://images.unsplash.com/photo-1775323017122-a3333fff34a7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBjb25jcmV0ZSUyMGFyY2hpdGVjdHVyZSUyMGluZnJhc3RydWN0dXJlfGVufDB8fHx8MTc3ODMxMjQwMnww&ixlib=rb-4.1.0&q=85",
+        "description": "Concrete bridge supports"
+      },
+      {
+        "category": "team_about",
+        "url": "https://images.unsplash.com/photo-1759395162292-728a3279b926?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxjb25zdHJ1Y3Rpb24lMjB3b3JrZXJzJTIwaW5kdXN0cmlhbCUyMHNpdGV8ZW58MHx8fHwxNzc4MzEyNDAyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Workers on a roof with a large crane overhead"
+      },
+      {
+        "category": "testimonial_avatar",
+        "url": "https://images.unsplash.com/photo-1759922378219-1d31edb644f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjB3b3JrZXJzJTIwaW5kdXN0cmlhbCUyMHNpdGV8ZW58MHx8fHwxNzc4MzEyNDAyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Construction worker wearing a hard hat"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "CRITICAL: Do NOT use placeholder text for images. Use the exact URLs provided in this JSON.",
+    "Build out all pages (Home, About Us, Services, Products, Projects, Gallery, Careers, Contact Us) as single-page scroll or React Router setup depending on the boilerplate.",
+    "Create a Hero Banner with the 'hero_background' image. Use a 'Crystal Glass' card for the hero text box overlay to ensure readability.",
+    "Add Animated Counters using react-countup or framer-motion for statistics (Years, Projects, Products, Clients).",
+    "Design a 'Bento Grid' for Product Categories and Services.",
+    "Implement a 'Request Quotation' form and a standard Contact form using Shadcn UI.",
+    "Embed a Google Maps iframe in the Contact section.",
+    "Add 'data-testid' to all buttons, links, form inputs, and major sections.",
+    "Ensure hover animations on buttons, product cards, and nav links using Tailwind or Framer Motion.",
+    "Integrate Lucide React icons for Services and WhatsApp floating button."
+  ]
+}
