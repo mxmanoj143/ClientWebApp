@@ -2,12 +2,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-import { PRODUCTS, PROJECTS } from "@/data/site";
+import { PRODUCTS } from "@/data/site";
 
-const GALLERY = [
-  ...PROJECTS.map((p) => ({ src: p.img, label: p.title })),
-  ...PRODUCTS.slice(0, 14).map((p) => ({ src: p.img, label: p.name })),
-];
+const GALLERY = PRODUCTS.map((p) => ({ src: p.img, label: p.name, category: p.category }));
 
 export default function Gallery() {
   const [active, setActive] = useState(null);
@@ -33,6 +30,7 @@ export default function Gallery() {
               <img src={g.src} alt={g.label} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="text-[10px] uppercase tracking-[0.25em] text-[#EA580C] font-bold">{g.category}</div>
                 <div className="text-white font-display font-bold text-sm">{g.label}</div>
               </div>
             </button>

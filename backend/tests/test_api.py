@@ -23,6 +23,25 @@ def test_health(session):
     assert "email_configured" in data
     assert isinstance(data["email_configured"], bool)
     assert "notification_count" in data
+    # Iteration 2: must be exactly 1 (only sales.revanthconcrete@gmail.com)
+    assert data["notification_count"] == 1
+
+
+def test_quote_with_brochure_product(session):
+    """Quote should accept new brochure product names like 'RCC Hume Pipes'."""
+    payload = {
+        "name": "TEST_Brochure",
+        "email": "test_brochure@example.com",
+        "phone": "+919000000000",
+        "product": "RCC Hume Pipes",
+        "quantity": "50 m",
+        "location": "Pune",
+    }
+    r = session.post(f"{API}/quote", json=payload, timeout=20)
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["product"] == "RCC Hume Pipes"
+    assert "id" in body and "_id" not in body
 
 
 def test_root(session):

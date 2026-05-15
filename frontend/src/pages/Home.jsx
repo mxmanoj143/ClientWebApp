@@ -5,9 +5,8 @@ import {
   Leaf, MapPin, Handshake, Phone, Mail, Quote, Plus, Minus,
 } from "lucide-react";
 import { useState } from "react";
-import AnimatedCounter from "@/components/AnimatedCounter";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
-import { COMPANY, STATS, SERVICES, PRODUCTS, PROJECTS, TESTIMONIALS, FAQS, WHY_US } from "@/data/site";
+import { COMPANY, SERVICES, PRODUCTS, TESTIMONIALS, FAQS, WHY_US } from "@/data/site";
 
 const ICONS = { Package, HardHat, ClipboardList, ShieldCheck, Truck, Wrench, Leaf, MapPin, Handshake };
 
@@ -38,14 +37,16 @@ export default function Home() {
               <div className="text-xs uppercase tracking-[0.35em] text-[#EA580C] font-bold">
                 {COMPANY.tagline}
               </div>
-              <h1 className="font-display font-black text-white text-[44px] sm:text-6xl lg:text-[88px] leading-[0.95] tracking-tight mt-6">
-                Precision-cast<br />
-                concrete that<br />
-                <span className="text-[#EA580C]">builds tomorrow.</span>
+              <h1 className="font-display font-black text-white text-[40px] sm:text-5xl lg:text-[76px] leading-[1.02] tracking-tight mt-6">
+                Built for <span className="text-[#EA580C]">Strength.</span><br />
+                Designed for <span className="text-[#EA580C]">Reliability.</span>
               </h1>
-              <p className="mt-8 text-base md:text-lg text-white/70 max-w-xl leading-relaxed">
-                {COMPANY.description}
-              </p>
+              <div className="mt-8 space-y-5 max-w-2xl">
+                {COMPANY.heroParagraphs.map((p, i) => (
+                  <p key={i} className="text-base md:text-lg text-white/75 leading-relaxed">{p}</p>
+                ))}
+                <p className="text-base md:text-lg text-white font-bold tracking-wide">{COMPANY.heroSignoff}</p>
+              </div>
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link to="/contact" data-testid="hero-cta-quote" className="inline-flex items-center gap-2 bg-[#EA580C] hover:bg-[#C2410C] text-white px-7 py-4 font-bold rounded-full transition-colors">
                   Request a Quote <ArrowRight className="w-4 h-4" />
@@ -72,9 +73,9 @@ export default function Home() {
                       <span className="font-bold">{p}</span>
                     </a>
                   ))}
-                  <a href={`mailto:${COMPANY.emails[1]}`} className="flex items-center gap-3 text-[#0F172A] hover:text-[#EA580C]">
+                  <a href={`mailto:${COMPANY.emails[0]}`} className="flex items-center gap-3 text-[#0F172A] hover:text-[#EA580C]">
                     <Mail className="w-4 h-4 text-[#EA580C]" />
-                    <span className="font-bold break-all text-sm">{COMPANY.emails[1]}</span>
+                    <span className="font-bold break-all text-sm">{COMPANY.emails[0]}</span>
                   </a>
                 </div>
                 <Link to="/contact" data-testid="hero-card-cta" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#EA580C]">
@@ -89,7 +90,7 @@ export default function Home() {
         <div className="relative border-y border-white/10 bg-black/20 overflow-hidden">
           <div className="flex gap-12 animate-marquee whitespace-nowrap py-5">
             {[...Array(2)].flatMap((_, i) =>
-              ["ISO Quality Mix", "On-Time Delivery", "Custom Moulds", "Pan-Maharashtra", "Engineered Strength", "Sustainable Concrete", "500+ Projects", "Trusted Since 2010"].map((t, j) => (
+              ["ISO Quality Mix", "On-Time Delivery", "Custom Moulds", "Pan-Maharashtra", "Engineered Strength", "Sustainable Concrete", "60,000 sq ft Facility", "Trusted Partnerships"].map((t, j) => (
                 <span key={`${i}-${j}`} className="text-white/60 text-xs uppercase tracking-[0.35em] font-bold flex items-center gap-12">
                   <span className="text-[#EA580C]">●</span> {t}
                 </span>
@@ -99,7 +100,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* WHO WE ARE */}
       <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <Reveal className="lg:col-span-5">
@@ -109,10 +110,12 @@ export default function Home() {
             </h2>
           </Reveal>
           <Reveal delay={0.15} className="lg:col-span-7">
-            <p className="text-lg text-[#475569] leading-relaxed">
-              At Revanth Concrete Products — operated by Maharudra Precast Pvt Ltd — we engineer and manufacture a complete catalogue of precast concrete elements for infrastructure, buildings, landscaping and utilities. From paving blocks and hume pipes to bespoke architectural casts, every piece leaves our yard with the strength, precision and finish your project demands.
-            </p>
-            <div className="mt-10 grid sm:grid-cols-2 gap-6">
+            <div className="space-y-5">
+              {COMPANY.whoWeAre.map((p, i) => (
+                <p key={i} className="text-lg text-[#475569] leading-relaxed">{p}</p>
+              ))}
+            </div>
+            <div className="mt-12 grid sm:grid-cols-2 gap-6">
               <div>
                 <div className="font-display font-black text-3xl text-[#0F172A]">Built to spec</div>
                 <p className="text-[#475569] mt-2 text-sm">Custom moulds, mix designs and finishes — from RCC to FRP.</p>
@@ -129,17 +132,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-[#F1F5F9] border-y border-[#E2E8F0]">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-          {STATS.map((s) => (
-            <AnimatedCounter key={s.label} {...s} />
-          ))}
-        </div>
-      </section>
-
       {/* SERVICES */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
+      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#F1F5F9] border-y border-[#E2E8F0]">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
             <div className="text-xs uppercase tracking-[0.3em] text-[#EA580C] font-bold">What we do</div>
@@ -183,7 +177,7 @@ export default function Home() {
           <div>
             <div className="text-xs uppercase tracking-[0.3em] text-[#EA580C] font-bold">Catalogue</div>
             <h2 className="font-display font-black text-4xl md:text-5xl mt-4 max-w-2xl leading-[1.05]">
-              27 precast products. One trusted partner.
+              A complete catalogue of precast solutions.
             </h2>
           </div>
           <Link to="/products" className="text-sm font-bold text-white hover:text-[#EA580C] inline-flex items-center gap-2" data-testid="products-see-all">
@@ -193,7 +187,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {PRODUCTS.slice(0, 8).map((p) => (
             <Link
-              to="/products"
+              to={`/products#${p.id}`}
               key={p.id}
               data-testid={`product-tile-${p.id}`}
               className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-white/5 border border-white/10"
@@ -236,41 +230,8 @@ export default function Home() {
         </Stagger>
       </section>
 
-      {/* PROJECTS */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#F1F5F9]">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-          <div>
-            <div className="text-xs uppercase tracking-[0.3em] text-[#EA580C] font-bold">Recent Work</div>
-            <h2 className="font-display font-black text-4xl md:text-5xl text-[#0F172A] mt-4 max-w-2xl leading-[1.05]">
-              Concrete in action.
-            </h2>
-          </div>
-          <Link to="/projects" className="text-sm font-bold text-[#0F172A] hover:text-[#EA580C] inline-flex items-center gap-2">
-            All projects <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-          {PROJECTS.slice(0, 4).map((p, i) => (
-            <Link
-              to="/projects"
-              key={p.id}
-              data-testid={`recent-project-${p.id}`}
-              className={`group relative overflow-hidden rounded-2xl bg-[#0F172A] ${i === 0 ? "md:col-span-4 md:row-span-2 aspect-[16/10]" : "md:col-span-2 aspect-[4/3]"}`}
-            >
-              <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/40 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-[#EA580C] font-bold">{p.location}</div>
-                <div className="font-display font-black text-white text-xl md:text-2xl mt-1 leading-tight">{p.title}</div>
-                <div className="text-white/70 text-xs mt-1">{p.scope}</div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
       {/* TESTIMONIALS */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
+      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#F1F5F9]">
         <Reveal>
           <div className="text-xs uppercase tracking-[0.3em] text-[#EA580C] font-bold">Voices from site</div>
           <h2 className="font-display font-black text-4xl md:text-5xl text-[#0F172A] mt-4 max-w-3xl leading-[1.05]">
@@ -297,7 +258,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#F1F5F9]">
+      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
         <div className="grid lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-4">
             <div className="text-xs uppercase tracking-[0.3em] text-[#EA580C] font-bold">Questions</div>
