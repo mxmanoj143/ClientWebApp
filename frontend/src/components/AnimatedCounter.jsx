@@ -10,9 +10,9 @@ export default function AnimatedCounter({ value, suffix = "", label, duration = 
 
   return (
     <div ref={ref} className="text-center md:text-left" data-testid={`stat-${label.replace(/\s+/g, "-").toLowerCase()}`}>
-      <div className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-[#0F172A] leading-none tracking-tight">
+      <div className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-[#1E3A8A] leading-none tracking-tight">
         {start ? <CountUp end={value} duration={duration} separator="," /> : 0}
-        <span className="text-[#EA580C]">{suffix}</span>
+        <span className="text-[#94A3B8]">{suffix}</span>
       </div>
       <div className="mt-3 text-xs md:text-sm uppercase tracking-[0.25em] font-bold text-[#475569]">
         {label}

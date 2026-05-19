@@ -23,51 +23,51 @@ export default function Contact() {
       <section className="px-6 md:px-12 lg:px-24 py-20">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5 space-y-5">
-            <div className="text-xs uppercase tracking-[0.3em] text-[#EA580C] font-bold">Reach us</div>
-            <h2 className="font-display font-black text-4xl text-[#0F172A] leading-[1.05]">Direct. Responsive. Engineered.</h2>
+            <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Reach us</div>
+            <h2 className="font-display font-black text-4xl text-[#1E3A8A] leading-[1.05]">Direct. Responsive. Engineered.</h2>
 
             <div className="space-y-4 mt-6">
               <div className="flex items-start gap-4 bg-white border border-[#E2E8F0] rounded-2xl p-5">
-                <div className="w-10 h-10 bg-[#0F172A] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-[#EA580C]" />
+                <div className="w-10 h-10 bg-[#1E3A8A] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-[#94A3B8]" />
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#475569]">Address</div>
-                  <div className="text-[#0F172A] font-bold mt-1">{COMPANY.address}</div>
+                  <div className="text-[#1E3A8A] font-bold mt-1">{COMPANY.address}</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 bg-white border border-[#E2E8F0] rounded-2xl p-5">
-                <div className="w-10 h-10 bg-[#0F172A] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-[#EA580C]" />
+                <div className="w-10 h-10 bg-[#1E3A8A] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-[#94A3B8]" />
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#475569]">Phone</div>
                   {COMPANY.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="block text-[#0F172A] font-bold hover:text-[#EA580C] mt-1">{p}</a>
+                    <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="block text-[#1E3A8A] font-bold hover:text-[#94A3B8] mt-1">{p}</a>
                   ))}
                 </div>
               </div>
 
               <div className="flex items-start gap-4 bg-white border border-[#E2E8F0] rounded-2xl p-5">
-                <div className="w-10 h-10 bg-[#0F172A] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-[#EA580C]" />
+                <div className="w-10 h-10 bg-[#1E3A8A] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-[#94A3B8]" />
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#475569]">Email</div>
                   {COMPANY.emails.map((e) => (
-                    <a key={e} href={`mailto:${e}`} className="block text-[#0F172A] font-bold hover:text-[#EA580C] mt-1 break-all">{e}</a>
+                    <a key={e} href={`mailto:${e}`} className="block text-[#1E3A8A] font-bold hover:text-[#94A3B8] mt-1 break-all">{e}</a>
                   ))}
                 </div>
               </div>
 
               <div className="flex items-start gap-4 bg-white border border-[#E2E8F0] rounded-2xl p-5">
-                <div className="w-10 h-10 bg-[#0F172A] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-[#EA580C]" />
+                <div className="w-10 h-10 bg-[#1E3A8A] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-[#94A3B8]" />
                 </div>
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#475569]">Hours</div>
-                  <div className="text-[#0F172A] font-bold mt-1">Mon – Sat · 9:00 to 18:30 IST</div>
+                  <div className="text-[#1E3A8A] font-bold mt-1">Mon – Sat · 9:00 to 18:30 IST</div>
                 </div>
               </div>
             </div>
@@ -78,14 +78,14 @@ export default function Contact() {
               <button
                 onClick={() => setTab("contact")}
                 data-testid="tab-contact"
-                className={`px-5 py-2 text-xs uppercase tracking-[0.25em] font-bold rounded-full transition-colors ${tab === "contact" ? "bg-[#0F172A] text-white" : "bg-[#F1F5F9] text-[#475569]"}`}
+                className={`px-5 py-2 text-xs uppercase tracking-[0.25em] font-bold rounded-full transition-colors ${tab === "contact" ? "bg-[#1E3A8A] text-white" : "bg-[#F1F5F9] text-[#475569]"}`}
               >
                 General Enquiry
               </button>
               <button
                 onClick={() => setTab("quote")}
                 data-testid="tab-quote"
-                className={`px-5 py-2 text-xs uppercase tracking-[0.25em] font-bold rounded-full transition-colors ${tab === "quote" ? "bg-[#0F172A] text-white" : "bg-[#F1F5F9] text-[#475569]"}`}
+                className={`px-5 py-2 text-xs uppercase tracking-[0.25em] font-bold rounded-full transition-colors ${tab === "quote" ? "bg-[#1E3A8A] text-white" : "bg-[#F1F5F9] text-[#475569]"}`}
               >
                 Request a Quote
               </button>

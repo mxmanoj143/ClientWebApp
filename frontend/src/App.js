@@ -15,7 +15,7 @@ import Contact from "@/pages/Contact";
 
 function App() {
   return (
-    <div className="App bg-white text-[#0F172A]">
+    <div className="App bg-white text-[#1E3A8A]">
       <BrowserRouter>
         <ScrollToTop />
         <Navbar />

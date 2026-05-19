@@ -73,7 +73,7 @@ export default function Products() {
             <button
               onClick={() => setDropdownOpen((s) => !s)}
               data-testid="products-dropdown-toggle"
-              className="w-full flex items-center justify-between gap-3 bg-[#0F172A] text-white rounded-full px-5 py-3 text-sm font-bold"
+              className="w-full flex items-center justify-between gap-3 bg-[#1E3A8A] text-white rounded-full px-5 py-3 text-sm font-bold"
             >
               <span className="truncate">
                 {selected ? PRODUCTS.find((p) => p.id === selected)?.name : "Jump to a product"}
@@ -92,10 +92,10 @@ export default function Products() {
                     key={p.id}
                     onClick={() => scrollToProduct(p.id)}
                     data-testid={`dropdown-option-${p.id}`}
-                    className="w-full text-left px-4 py-3 text-sm font-bold text-[#0F172A] hover:bg-[#F1F5F9] flex items-center justify-between gap-3 border-b border-[#E2E8F0] last:border-b-0"
+                    className="w-full text-left px-4 py-3 text-sm font-bold text-[#1E3A8A] hover:bg-[#F1F5F9] flex items-center justify-between gap-3 border-b border-[#E2E8F0] last:border-b-0"
                   >
                     <span>{p.name}</span>
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#EA580C]">{p.category}</span>
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]">{p.category}</span>
                   </button>
                 ))}
               </motion.div>
@@ -110,7 +110,7 @@ export default function Products() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search products…"
               data-testid="products-search"
-              className="bg-transparent outline-none w-full text-sm text-[#0F172A]"
+              className="bg-transparent outline-none w-full text-sm text-[#1E3A8A]"
             />
           </div>
 
@@ -122,7 +122,7 @@ export default function Products() {
                 onClick={() => setActive(c)}
                 data-testid={`products-filter-${c.toLowerCase().replace(/\s+/g, "-")}`}
                 className={`px-4 py-2 text-xs uppercase tracking-[0.2em] font-bold rounded-full transition-colors ${
-                  active === c ? "bg-[#0F172A] text-white" : "bg-[#F1F5F9] text-[#475569] hover:bg-[#E2E8F0]"
+                  active === c ? "bg-[#1E3A8A] text-white" : "bg-[#F1F5F9] text-[#475569] hover:bg-[#E2E8F0]"
                 }`}
               >
                 {c}
@@ -156,11 +156,11 @@ export default function Products() {
                       alt={p.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.25em] font-bold text-[#0F172A]">
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.25em] font-bold text-[#1E3A8A]">
                       {p.category}
                     </div>
                     <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2">
-                      <div className="bg-[#EA580C] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1.5 rounded-full">
+                      <div className="bg-[#94A3B8] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1.5 rounded-full">
                         #{String(i + 1).padStart(2, "0")}
                       </div>
                     </div>
@@ -170,30 +170,30 @@ export default function Products() {
                 {/* Content */}
                 <div className="lg:col-span-7">
                   <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] font-bold">
-                    <MapPin className="w-3 h-3 text-[#EA580C]" />
-                    <span className="text-[#EA580C]">{p.category}</span>
+                    <MapPin className="w-3 h-3 text-[#94A3B8]" />
+                    <span className="text-[#94A3B8]">{p.category}</span>
                   </div>
-                  <h2 className="font-display font-black text-4xl md:text-5xl text-[#0F172A] mt-3 leading-[1.05]">{p.name}</h2>
+                  <h2 className="font-display font-black text-4xl md:text-5xl text-[#1E3A8A] mt-3 leading-[1.05]">{p.name}</h2>
                   <p className="text-[#475569] mt-6 leading-relaxed">{p.desc}</p>
 
                   <div className="grid sm:grid-cols-2 gap-8 mt-8">
                     <div>
-                      <div className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#EA580C] mb-3">Key Features</div>
+                      <div className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#94A3B8] mb-3">Key Features</div>
                       <ul className="space-y-2">
                         {p.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2 text-sm text-[#0F172A]">
-                            <CheckCircle2 className="w-4 h-4 text-[#EA580C] flex-shrink-0 mt-0.5" />
+                          <li key={f} className="flex items-start gap-2 text-sm text-[#1E3A8A]">
+                            <CheckCircle2 className="w-4 h-4 text-[#94A3B8] flex-shrink-0 mt-0.5" />
                             <span>{f}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <div className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#EA580C] mb-3">Applications</div>
+                      <div className="text-[11px] uppercase tracking-[0.25em] font-bold text-[#94A3B8] mb-3">Applications</div>
                       <ul className="space-y-2">
                         {p.applications.map((a) => (
-                          <li key={a} className="flex items-start gap-2 text-sm text-[#0F172A]">
-                            <span className="w-1.5 h-1.5 bg-[#0F172A] rounded-full mt-2 flex-shrink-0" />
+                          <li key={a} className="flex items-start gap-2 text-sm text-[#1E3A8A]">
+                            <span className="w-1.5 h-1.5 bg-[#1E3A8A] rounded-full mt-2 flex-shrink-0" />
                             <span>{a}</span>
                           </li>
                         ))}
@@ -205,7 +205,7 @@ export default function Products() {
                     to="/contact"
                     state={{ product: p.name }}
                     data-testid={`product-cta-${p.id}`}
-                    className="mt-10 inline-flex items-center gap-2 bg-[#0F172A] hover:bg-[#EA580C] text-white px-6 py-3 font-bold rounded-full transition-colors text-sm"
+                    className="mt-10 inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#94A3B8] text-white px-6 py-3 font-bold rounded-full transition-colors text-sm"
                   >
                     Request a Quote <ArrowUpRight className="w-4 h-4" />
                   </Link>

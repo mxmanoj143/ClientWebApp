@@ -17,8 +17,8 @@ export default function WhatsAppFloat() {
             transition={{ duration: 0.2 }}
             className="glass rounded-2xl p-5 w-[280px] shadow-xl"
           >
-            <div className="text-xs uppercase tracking-[0.25em] text-[#EA580C] font-bold mb-1">Chat on WhatsApp</div>
-            <div className="font-display font-bold text-[#0F172A] text-lg leading-tight mb-3">Talk to our team</div>
+            <div className="text-xs uppercase tracking-[0.25em] text-[#94A3B8] font-bold mb-1">Chat on WhatsApp</div>
+            <div className="font-display font-bold text-[#1E3A8A] text-lg leading-tight mb-3">Talk to our team</div>
             <div className="flex flex-col gap-2">
               {COMPANY.whatsapp.map((num, i) => (
                 <a
@@ -27,11 +27,11 @@ export default function WhatsAppFloat() {
                   target="_blank"
                   rel="noreferrer"
                   data-testid={`whatsapp-number-${i}`}
-                  className="flex items-center justify-between gap-3 bg-white/80 hover:bg-white border border-[#0F172A]/10 px-4 py-3 rounded-xl transition-colors"
+                  className="flex items-center justify-between gap-3 bg-white/80 hover:bg-white border border-[#1E3A8A]/10 px-4 py-3 rounded-xl transition-colors"
                 >
                   <div>
                     <div className="text-[10px] uppercase tracking-[0.2em] text-[#475569] font-bold">{i === 0 ? "Sales" : "Support"}</div>
-                    <div className="text-sm font-bold text-[#0F172A]">{COMPANY.phones[i]}</div>
+                    <div className="text-sm font-bold text-[#1E3A8A]">{COMPANY.phones[i]}</div>
                   </div>
                   <MessageCircle className="w-5 h-5 text-[#25D366]" />
                 </a>
@@ -39,7 +39,7 @@ export default function WhatsAppFloat() {
               <a
                 href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`}
                 data-testid="whatsapp-call-btn"
-                className="flex items-center justify-center gap-2 bg-[#0F172A] text-white px-4 py-3 rounded-xl text-sm font-bold mt-1"
+                className="flex items-center justify-center gap-2 bg-[#1E3A8A] text-white px-4 py-3 rounded-xl text-sm font-bold mt-1"
               >
                 <Phone className="w-4 h-4" /> Call instead
               </a>
@@ -57,7 +57,7 @@ export default function WhatsAppFloat() {
         aria-label="WhatsApp chat"
       >
         {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
-        {!open && <span className="absolute -top-1 -right-1 flex h-3 w-3"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span><span className="relative inline-flex rounded-full h-3 w-3 bg-[#EA580C]"></span></span>}
+        {!open && <span className="absolute -top-1 -right-1 flex h-3 w-3"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span><span className="relative inline-flex rounded-full h-3 w-3 bg-[#94A3B8]"></span></span>}
       </motion.button>
     </div>
   );

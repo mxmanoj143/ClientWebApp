@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 
 export default function PageHeader({ overline, title, subtitle, image }) {
   return (
-    <section className="relative pt-36 md:pt-44 pb-20 md:pb-28 overflow-hidden bg-[#0F172A] noise-overlay">
+    <section className="relative pt-36 md:pt-44 pb-20 md:pb-28 overflow-hidden bg-[#1E3A8A] noise-overlay">
       {image && (
         <div className="absolute inset-0 opacity-25">
           <img src={image} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/40 via-[#0F172A]/60 to-[#0F172A]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1E3A8A]/40 via-[#1E3A8A]/60 to-[#1E3A8A]" />
         </div>
       )}
       <div className="relative px-6 md:px-12 lg:px-24">
@@ -17,7 +17,7 @@ export default function PageHeader({ overline, title, subtitle, image }) {
           className="max-w-4xl"
         >
           {overline && (
-            <div className="text-xs uppercase tracking-[0.3em] text-[#EA580C] font-bold mb-4">
+            <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold mb-4">
               {overline}
             </div>
           )}

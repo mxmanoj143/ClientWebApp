@@ -25,15 +25,15 @@ export default function Navbar() {
         scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className={`mx-4 md:mx-8 lg:mx-12 rounded-full transition-all duration-300 ${scrolled ? "glass" : "bg-transparent"}`}>
+      <div className={`mx-4 md:mx-8 lg:mx-12 rounded-full transition-all duration-300 ${scrolled ? "glass" : "glass-dark"}`}>
         <div className="flex items-center justify-between px-5 md:px-7 py-3">
           <Link to="/" data-testid="navbar-logo" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-[#0F172A] flex items-center justify-center rounded-md">
-              <span className="text-[#EA580C] font-display font-black text-lg">R</span>
+            <div className="w-10 h-10 bg-[#1E3A8A] flex items-center justify-center rounded-md border border-white/20">
+              <span className="text-white font-display font-black text-lg">R</span>
             </div>
             <div className="leading-tight">
-              <div className="font-display font-black text-[#0F172A] text-base tracking-tight">REVANTH</div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-[#475569] font-bold">Concrete Products</div>
+              <div className={`font-display font-black text-base tracking-tight ${scrolled ? "text-[#1E3A8A]" : "text-white"}`}>REVANTH</div>
+              <div className={`text-[10px] uppercase tracking-[0.25em] font-bold ${scrolled ? "text-[#475569]" : "text-white/70"}`}>Concrete Products</div>
             </div>
           </Link>
 
@@ -46,7 +46,9 @@ export default function Navbar() {
                 end={l.to === "/"}
                 className={({ isActive }) =>
                   `px-4 py-2 text-sm font-bold tracking-wide transition-colors rounded-full ${
-                    isActive ? "text-[#EA580C]" : "text-[#0F172A] hover:text-[#EA580C]"
+                    isActive
+                      ? scrolled ? "text-[#1E3A8A]" : "text-white"
+                      : scrolled ? "text-[#475569] hover:text-[#1E3A8A]" : "text-white/80 hover:text-white"
                   }`
                 }
               >
@@ -59,14 +61,18 @@ export default function Navbar() {
             <Link
               to="/contact"
               data-testid="navbar-cta-quote"
-              className="hidden md:inline-flex items-center gap-2 bg-[#0F172A] text-white px-5 py-3 text-sm font-bold tracking-wide hover:bg-[#EA580C] transition-colors rounded-full"
+              className={`hidden md:inline-flex items-center gap-2 px-5 py-3 text-sm font-bold tracking-wide rounded-full transition-colors ${
+                scrolled
+                  ? "bg-[#1E3A8A] text-white hover:bg-[#475569]"
+                  : "bg-white text-[#1E3A8A] hover:bg-[#94A3B8] hover:text-white"
+              }`}
             >
               Get Quote <ArrowUpRight className="w-4 h-4" />
             </Link>
             <button
               data-testid="navbar-mobile-toggle"
               onClick={() => setOpen((s) => !s)}
-              className="lg:hidden p-3 rounded-full bg-[#0F172A] text-white"
+              className="lg:hidden p-3 rounded-full bg-[#1E3A8A] text-white"
               aria-label="Open menu"
             >
               {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -93,7 +99,7 @@ export default function Navbar() {
                   end={l.to === "/"}
                   data-testid={`mobile-nav-link-${l.label.toLowerCase()}`}
                   className={({ isActive }) =>
-                    `px-4 py-3 text-base font-bold ${isActive ? "text-[#EA580C]" : "text-[#0F172A]"}`
+                    `px-4 py-3 text-base font-bold ${isActive ? "text-[#94A3B8]" : "text-[#1E3A8A]"}`
                   }
                 >
                   {l.label}
@@ -102,7 +108,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 data-testid="mobile-cta-quote"
-                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#EA580C] text-white px-5 py-3 text-sm font-bold rounded-full"
+                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#94A3B8] text-white px-5 py-3 text-sm font-bold rounded-full"
               >
                 Get Quote <ArrowUpRight className="w-4 h-4" />
               </Link>
