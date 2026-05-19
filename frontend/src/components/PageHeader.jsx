@@ -17,7 +17,7 @@ export default function PageHeader({ overline, title, subtitle, image }) {
           className="max-w-4xl"
         >
           {overline && (
-            <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold mb-4">
+            <div className="text-xs uppercase tracking-[0.3em] text-[#E2E8F0] font-bold mb-4">
               {overline}
             </div>
           )}

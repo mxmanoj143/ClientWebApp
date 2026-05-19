@@ -160,7 +160,7 @@ export default function Products() {
                       {p.category}
                     </div>
                     <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2">
-                      <div className="bg-[#94A3B8] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1.5 rounded-full">
+                      <div className="bg-[#3B82F6] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1.5 rounded-full">
                         #{String(i + 1).padStart(2, "0")}
                       </div>
                     </div>
@@ -205,7 +205,7 @@ export default function Products() {
                     to="/contact"
                     state={{ product: p.name }}
                     data-testid={`product-cta-${p.id}`}
-                    className="mt-10 inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#94A3B8] text-white px-6 py-3 font-bold rounded-full transition-colors text-sm"
+                    className="mt-10 inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#3B82F6] text-white px-6 py-3 font-bold rounded-full transition-colors text-sm"
                   >
                     Request a Quote <ArrowUpRight className="w-4 h-4" />
                   </Link>

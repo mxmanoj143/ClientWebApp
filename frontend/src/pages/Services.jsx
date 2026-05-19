@@ -30,7 +30,7 @@ export default function Services() {
                       className="w-full h-full object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 w-14 h-14 bg-[#94A3B8] rounded-2xl flex items-center justify-center">
+                    <div className="absolute bottom-6 left-6 w-14 h-14 bg-[#3B82F6] rounded-2xl flex items-center justify-center">
                       <Ico className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -47,7 +47,7 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/contact" className="mt-10 inline-flex items-center gap-2 bg-[#1E3A8A] text-white px-6 py-3 font-bold rounded-full hover:bg-[#94A3B8] transition-colors text-sm" data-testid={`service-cta-${s.id}`}>
+                  <Link to="/contact" className="mt-10 inline-flex items-center gap-2 bg-[#1E3A8A] text-white px-6 py-3 font-bold rounded-full hover:bg-[#3B82F6] transition-colors text-sm" data-testid={`service-cta-${s.id}`}>
                     Discuss your requirement <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>

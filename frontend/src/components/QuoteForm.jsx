@@ -101,7 +101,7 @@ export default function QuoteForm({ defaultProduct = "" }) {
         type="submit"
         disabled={loading}
         data-testid="quote-submit"
-        className="inline-flex items-center justify-center gap-2 bg-[#94A3B8] hover:bg-[#475569] text-white px-8 py-4 font-bold tracking-wide rounded-full disabled:opacity-60 transition-colors"
+        className="inline-flex items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white px-8 py-4 font-bold tracking-wide rounded-full disabled:opacity-60 transition-colors"
       >
         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
         {loading ? "Submitting…" : "Submit Quote Request"}

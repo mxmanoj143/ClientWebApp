@@ -34,12 +34,12 @@ export default function Home() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-8"
             >
-              <div className="text-xs uppercase tracking-[0.35em] text-[#94A3B8] font-bold">
+              <div className="text-xs uppercase tracking-[0.35em] text-[#E2E8F0] font-bold">
                 {COMPANY.tagline}
               </div>
               <h1 className="font-display font-black text-white text-[40px] sm:text-5xl lg:text-[76px] leading-[1.02] tracking-tight mt-6">
-                Built for <span className="text-[#94A3B8] italic">Strength.</span><br />
-                Designed for <span className="text-[#94A3B8] italic">Reliability.</span>
+                Built for <span className="text-[#E2E8F0] italic">Strength.</span><br />
+                Designed for <span className="text-[#E2E8F0] italic">Reliability.</span>
               </h1>
               <div className="mt-8 space-y-5 max-w-2xl">
                 {COMPANY.heroParagraphs.map((p, i) => (
@@ -48,7 +48,7 @@ export default function Home() {
                 <p className="text-base md:text-lg text-white font-bold tracking-wide">{COMPANY.heroSignoff}</p>
               </div>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link to="/contact" data-testid="hero-cta-quote" className="inline-flex items-center gap-2 bg-[#94A3B8] hover:bg-[#475569] text-white px-7 py-4 font-bold rounded-full transition-colors">
+                <Link to="/contact" data-testid="hero-cta-quote" className="inline-flex items-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white px-7 py-4 font-bold rounded-full transition-colors">
                   Request a Quote <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link to="/products" data-testid="hero-cta-products" className="inline-flex items-center gap-2 glass-dark text-white px-7 py-4 font-bold rounded-full hover:bg-white/10 transition-colors">
@@ -91,8 +91,8 @@ export default function Home() {
           <div className="flex gap-12 animate-marquee whitespace-nowrap py-5">
             {[...Array(2)].flatMap((_, i) =>
               ["ISO Quality Mix", "On-Time Delivery", "Custom Moulds", "Pan-Maharashtra", "Engineered Strength", "Sustainable Concrete", "60,000 sq ft Facility", "Trusted Partnerships"].map((t, j) => (
-                <span key={`${i}-${j}`} className="text-white/60 text-xs uppercase tracking-[0.35em] font-bold flex items-center gap-12">
-                  <span className="text-[#94A3B8]">●</span> {t}
+                <span key={`${i}-${j}`} className="text-white/70 text-xs uppercase tracking-[0.35em] font-bold flex items-center gap-12">
+                  <span className="text-[#E2E8F0]">●</span> {t}
                 </span>
               ))
             )}
@@ -159,7 +159,7 @@ export default function Home() {
                   <ul className="mt-6 space-y-2">
                     {s.points.map((p) => (
                       <li key={p} className="flex items-start gap-2 text-sm text-[#1E3A8A]">
-                        <span className="w-1.5 h-1.5 bg-[#94A3B8] rounded-full mt-2 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 bg-[#3B82F6] rounded-full mt-2 flex-shrink-0" />
                         {p}
                       </li>
                     ))}
@@ -175,12 +175,12 @@ export default function Home() {
       <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#1E3A8A] text-white noise-overlay">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Catalogue</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">Catalogue</div>
             <h2 className="font-display font-black text-4xl md:text-5xl mt-4 max-w-2xl leading-[1.05]">
               A complete catalogue of precast solutions.
             </h2>
           </div>
-          <Link to="/products" className="text-sm font-bold text-white hover:text-[#94A3B8] inline-flex items-center gap-2" data-testid="products-see-all">
+          <Link to="/products" className="text-sm font-bold text-white hover:text-[#3B82F6] inline-flex items-center gap-2" data-testid="products-see-all">
             View all products <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -195,10 +195,10 @@ export default function Home() {
               <img src={p.img} alt={p.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A] via-[#1E3A8A]/30 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-[#94A3B8] font-bold">{p.category}</div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">{p.category}</div>
                 <div className="font-display font-black text-white text-lg mt-1 leading-tight">{p.name}</div>
               </div>
-              <div className="absolute top-4 right-4 w-9 h-9 bg-[#94A3B8] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-4 right-4 w-9 h-9 bg-[#3B82F6] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowUpRight className="w-4 h-4 text-white" />
               </div>
             </Link>
@@ -266,7 +266,7 @@ export default function Home() {
               Frequently asked.
             </h2>
             <p className="text-[#475569] mt-6">Don't see your question? Talk to our team — we typically respond within an hour during business hours.</p>
-            <Link to="/contact" data-testid="faq-contact-cta" className="mt-8 inline-flex items-center gap-2 bg-[#1E3A8A] text-white px-6 py-3 font-bold rounded-full hover:bg-[#94A3B8] transition-colors text-sm">
+            <Link to="/contact" data-testid="faq-contact-cta" className="mt-8 inline-flex items-center gap-2 bg-[#1E3A8A] text-white px-6 py-3 font-bold rounded-full hover:bg-[#3B82F6] transition-colors text-sm">
               Ask a question <ArrowRight className="w-4 h-4" />
             </Link>
           </Reveal>
@@ -296,17 +296,17 @@ export default function Home() {
       {/* CTA STRIP */}
       <section className="px-6 md:px-12 lg:px-24 py-20">
         <div className="bg-[#1E3A8A] noise-overlay rounded-3xl p-10 md:p-16 relative overflow-hidden">
-          <div className="absolute -right-20 -top-20 w-80 h-80 bg-[#94A3B8]/30 rounded-full blur-3xl" />
+          <div className="absolute -right-20 -top-20 w-80 h-80 bg-[#3B82F6]/30 rounded-full blur-3xl" />
           <div className="relative grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Build with us</div>
+              <div className="text-xs uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">Build with us</div>
               <h2 className="font-display font-black text-white text-4xl md:text-5xl mt-4 leading-[1.05]">
                 Have a project?<br />Let's cast it right.
               </h2>
               <p className="text-white/70 mt-5 max-w-lg">Send us your drawings or a brief and our engineers will revert with feasibility, lead time and a competitive quote.</p>
             </div>
             <div className="flex flex-wrap gap-4 lg:justify-end">
-              <Link to="/contact" data-testid="bottom-cta-quote" className="inline-flex items-center gap-2 bg-[#94A3B8] hover:bg-[#475569] text-white px-7 py-4 font-bold rounded-full transition-colors">
+              <Link to="/contact" data-testid="bottom-cta-quote" className="inline-flex items-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white px-7 py-4 font-bold rounded-full transition-colors">
                 Request a Quote <ArrowRight className="w-4 h-4" />
               </Link>
               <a href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`} data-testid="bottom-cta-call" className="inline-flex items-center gap-2 glass-dark text-white px-7 py-4 font-bold rounded-full hover:bg-white/10 transition-colors">

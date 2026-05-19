@@ -119,7 +119,7 @@ export default function Careers() {
                   type="submit"
                   disabled={loading}
                   data-testid="career-submit"
-                  className="inline-flex items-center justify-center gap-2 bg-[#1E3A8A] hover:bg-[#94A3B8] text-white px-8 py-4 font-bold rounded-full disabled:opacity-60 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-[#1E3A8A] hover:bg-[#3B82F6] text-white px-8 py-4 font-bold rounded-full disabled:opacity-60 transition-colors"
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                   {loading ? "Submitting…" : "Submit Application"}

@@ -37,7 +37,7 @@ export default function About() {
                 <p key={i} className="text-[#475569] leading-relaxed">{p}</p>
               ))}
             </div>
-            <Link to="/contact" className="mt-10 inline-flex items-center gap-2 bg-[#94A3B8] text-white px-6 py-3 font-bold rounded-full hover:bg-[#475569] transition-colors text-sm" data-testid="about-cta-talk">
+            <Link to="/contact" className="mt-10 inline-flex items-center gap-2 bg-[#3B82F6] text-white px-6 py-3 font-bold rounded-full hover:bg-[#475569] transition-colors text-sm" data-testid="about-cta-talk">
               Talk to our team <ArrowRight className="w-4 h-4" />
             </Link>
           </Reveal>
@@ -61,13 +61,13 @@ export default function About() {
           </StaggerItem>
           <StaggerItem>
             <div className="bg-[#1E3A8A] noise-overlay rounded-3xl p-8 md:p-10 h-full text-white relative overflow-hidden" data-testid="about-mission">
-              <div className="absolute -right-12 -top-12 w-56 h-56 bg-[#94A3B8]/30 rounded-full blur-3xl" />
+              <div className="absolute -right-12 -top-12 w-56 h-56 bg-[#3B82F6]/30 rounded-full blur-3xl" />
               <div className="relative">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#94A3B8] rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-[#3B82F6] rounded-xl flex items-center justify-center">
                     <Target className="w-6 h-6 text-white" />
                   </div>
-                  <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Our Mission</div>
+                  <div className="text-xs uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">Our Mission</div>
                 </div>
                 <div className="font-display font-black text-3xl md:text-4xl mt-6 leading-[1.05]">Engineered for excellence.</div>
                 <p className="text-white/75 mt-5 leading-relaxed">{MISSION}</p>
@@ -101,7 +101,7 @@ export default function About() {
                       className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#1E3A8A]/40 to-transparent" />
-                    <div className="absolute top-4 left-4 bg-[#94A3B8] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full">
+                    <div className="absolute top-4 left-4 bg-[#3B82F6] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full">
                       {m.qualification}
                     </div>
                   </div>

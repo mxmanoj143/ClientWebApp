@@ -64,7 +64,7 @@ export default function Navbar() {
               className={`hidden md:inline-flex items-center gap-2 px-5 py-3 text-sm font-bold tracking-wide rounded-full transition-colors ${
                 scrolled
                   ? "bg-[#1E3A8A] text-white hover:bg-[#475569]"
-                  : "bg-white text-[#1E3A8A] hover:bg-[#94A3B8] hover:text-white"
+                  : "bg-white text-[#1E3A8A] hover:bg-[#3B82F6] hover:text-white"
               }`}
             >
               Get Quote <ArrowUpRight className="w-4 h-4" />
@@ -108,7 +108,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 data-testid="mobile-cta-quote"
-                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#94A3B8] text-white px-5 py-3 text-sm font-bold rounded-full"
+                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#3B82F6] text-white px-5 py-3 text-sm font-bold rounded-full"
               >
                 Get Quote <ArrowUpRight className="w-4 h-4" />
               </Link>
