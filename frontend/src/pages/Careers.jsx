@@ -59,8 +59,8 @@ export default function Careers() {
                 viewport={{ once: true }}
                 className="bg-white border border-[#E2E8F0] rounded-2xl p-6 product-card-hover"
               >
-                <c.icon className="w-6 h-6 text-[#94A3B8]" />
-                <div className="font-display font-black text-lg text-[#1E3A8A] mt-3">{c.title}</div>
+                <c.icon className="w-6 h-6 text-[#B0B7C3]" />
+                <div className="font-display font-black text-lg text-[#072B61] mt-3">{c.title}</div>
                 <p className="text-[#475569] text-sm mt-2">{c.desc}</p>
               </motion.div>
             ))}
@@ -69,15 +69,15 @@ export default function Careers() {
           <div className="lg:col-span-7">
             {done ? (
               <div className="glass rounded-2xl p-10 text-center" data-testid="career-success">
-                <CheckCircle2 className="w-12 h-12 text-[#94A3B8] mx-auto" />
-                <div className="font-display font-black text-2xl text-[#1E3A8A] mt-4">Application Received</div>
+                <CheckCircle2 className="w-12 h-12 text-[#B0B7C3] mx-auto" />
+                <div className="font-display font-black text-2xl text-[#072B61] mt-4">Application Received</div>
                 <p className="text-[#475569] mt-2">Thanks for your interest in joining Revanth. We will reach out when a suitable role opens.</p>
-                <button onClick={() => setDone(false)} className="mt-6 text-sm font-bold text-[#94A3B8]" data-testid="career-new">Submit another →</button>
+                <button onClick={() => setDone(false)} className="mt-6 text-sm font-bold text-[#B0B7C3]" data-testid="career-new">Submit another →</button>
               </div>
             ) : (
               <form onSubmit={submit} className="glass rounded-2xl p-6 md:p-8 space-y-5" data-testid="career-form">
-                <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Apply</div>
-                <h2 className="font-display font-black text-3xl text-[#1E3A8A]">Tell us about yourself.</h2>
+                <div className="text-xs uppercase tracking-[0.3em] text-[#B0B7C3] font-bold">Apply</div>
+                <h2 className="font-display font-black text-3xl text-[#072B61]">Tell us about yourself.</h2>
 
                 <div className="grid md:grid-cols-2 gap-5">
                   {[
@@ -96,7 +96,7 @@ export default function Careers() {
                         onChange={onChange}
                         required={req}
                         data-testid={`career-${name}`}
-                        className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#94A3B8] outline-none px-4 py-3 text-[#1E3A8A] rounded-lg"
+                        className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#B0B7C3] outline-none px-4 py-3 text-[#072B61] rounded-lg"
                       />
                     </label>
                   ))}
@@ -110,7 +110,7 @@ export default function Careers() {
                     onChange={onChange}
                     rows={4}
                     data-testid="career-message"
-                    className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#94A3B8] outline-none px-4 py-3 text-[#1E3A8A] rounded-lg"
+                    className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#B0B7C3] outline-none px-4 py-3 text-[#072B61] rounded-lg"
                     placeholder="Paste your resume link, brief bio, or notable projects."
                   />
                 </label>
@@ -119,7 +119,7 @@ export default function Careers() {
                   type="submit"
                   disabled={loading}
                   data-testid="career-submit"
-                  className="inline-flex items-center justify-center gap-2 bg-[#1E3A8A] hover:bg-[#3B82F6] text-white px-8 py-4 font-bold rounded-full disabled:opacity-60 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-[#072B61] hover:bg-[#072B61] text-white px-8 py-4 font-bold rounded-full disabled:opacity-60 transition-colors"
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                   {loading ? "Submitting…" : "Submit Application"}

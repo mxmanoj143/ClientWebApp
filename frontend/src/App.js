@@ -9,13 +9,14 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
 import Products from "@/pages/Products";
+import CategoryPage from "@/pages/CategoryPage";
 import Gallery from "@/pages/Gallery";
 import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
 
 function App() {
   return (
-    <div className="App bg-white text-[#1E3A8A]">
+    <div className="App bg-white text-[#072B61]">
       <BrowserRouter>
         <ScrollToTop />
         <Navbar />
@@ -25,6 +26,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:slug" element={<CategoryPage />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />

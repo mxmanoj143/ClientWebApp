@@ -25,12 +25,12 @@ export default function Gallery() {
               key={i}
               onClick={() => setActive(g)}
               data-testid={`gallery-tile-${i}`}
-              className="block w-full mb-4 break-inside-avoid relative group overflow-hidden rounded-2xl bg-[#F1F5F9]"
+              className="block w-full mb-4 break-inside-avoid relative group overflow-hidden rounded-2xl bg-[#F5F7FA]"
             >
               <img src={g.src} alt={g.label} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#072B61]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-[10px] uppercase tracking-[0.25em] text-[#94A3B8] font-bold">{g.category}</div>
+                <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold">{g.category}</div>
                 <div className="text-white font-display font-bold text-sm">{g.label}</div>
               </div>
             </button>
@@ -46,7 +46,7 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
             onClick={() => setActive(null)}
             data-testid="gallery-lightbox"
-            className="fixed inset-0 z-[60] bg-[#1E3A8A]/95 backdrop-blur-md flex items-center justify-center p-6"
+            className="fixed inset-0 z-[60] bg-[#072B61]/95 backdrop-blur-md flex items-center justify-center p-6"
           >
             <button onClick={() => setActive(null)} className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white" data-testid="gallery-lightbox-close">
               <X className="w-5 h-5" />

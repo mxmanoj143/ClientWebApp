@@ -14,7 +14,7 @@ export default function About() {
         overline="About Revanth"
         title="A precast partner built on rigor, finish and trust."
         subtitle="Operated by Maharudra Precast Private Limited — engineering premium RCC and precast solutions from a 60,000 sq. ft. facility in Pune."
-        image="https://images.unsplash.com/photo-1759395162292-728a3279b926?crop=entropy&cs=srgb&fm=jpg&q=85&w=2400"
+        image="/assets/about.png"
       />
 
       {/* Story */}
@@ -22,14 +22,15 @@ export default function About() {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <Reveal className="lg:col-span-6">
             <img
-              src="https://images.unsplash.com/photo-1759955074170-026d882ef011?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600"
-              alt="Manufacturing facility"
-              className="rounded-3xl w-full aspect-[4/5] object-cover"
+              src="/assets/about.png"
+              alt="Revanth Concrete Products manufacturing facility"
+              className="rounded-3xl w-full aspect-square object-cover shadow-[0_20px_40px_rgba(7,43,97,0.15)]"
+              data-testid="about-hero-image"
             />
           </Reveal>
           <Reveal delay={0.15} className="lg:col-span-6">
-            <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Our story</div>
-            <h2 className="font-display font-black text-4xl md:text-5xl text-[#1E3A8A] mt-4 leading-[1.05]">
+            <div className="text-xs uppercase tracking-[0.3em] text-[#B0B7C3] font-bold">Our story</div>
+            <h2 className="font-display font-black text-4xl md:text-5xl text-[#072B61] mt-4 leading-[1.05]">
               From foundry floor to flagship landmarks.
             </h2>
             <div className="space-y-5 mt-6">
@@ -37,7 +38,7 @@ export default function About() {
                 <p key={i} className="text-[#475569] leading-relaxed">{p}</p>
               ))}
             </div>
-            <Link to="/contact" className="mt-10 inline-flex items-center gap-2 bg-[#3B82F6] text-white px-6 py-3 font-bold rounded-full hover:bg-[#475569] transition-colors text-sm" data-testid="about-cta-talk">
+            <Link to="/contact" className="mt-10 inline-flex items-center gap-2 bg-[#072B61] text-white px-6 py-3 font-bold rounded-full hover:bg-[#475569] transition-colors text-sm" data-testid="about-cta-talk">
               Talk to our team <ArrowRight className="w-4 h-4" />
             </Link>
           </Reveal>
@@ -45,26 +46,26 @@ export default function About() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F1F5F9]">
+      <section className="py-20 md:py-24 px-6 md:px-12 lg:px-24 bg-[#F5F7FA]">
         <Stagger className="grid md:grid-cols-2 gap-6">
           <StaggerItem>
             <div className="bg-white rounded-3xl p-8 md:p-10 border border-[#E2E8F0] h-full product-card-hover" data-testid="about-vision">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#1E3A8A] rounded-xl flex items-center justify-center">
-                  <Eye className="w-6 h-6 text-[#94A3B8]" />
+                <div className="w-12 h-12 bg-[#072B61] rounded-xl flex items-center justify-center">
+                  <Eye className="w-6 h-6 text-[#B0B7C3]" />
                 </div>
-                <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Our Vision</div>
+                <div className="text-xs uppercase tracking-[0.3em] text-[#B0B7C3] font-bold">Our Vision</div>
               </div>
-              <div className="font-display font-black text-3xl md:text-4xl text-[#1E3A8A] mt-6 leading-[1.05]">Shaping tomorrow's infrastructure.</div>
+              <div className="font-display font-black text-3xl md:text-4xl text-[#072B61] mt-6 leading-[1.05]">Shaping tomorrow's infrastructure.</div>
               <p className="text-[#475569] mt-5 leading-relaxed">{VISION}</p>
             </div>
           </StaggerItem>
           <StaggerItem>
-            <div className="bg-[#1E3A8A] noise-overlay rounded-3xl p-8 md:p-10 h-full text-white relative overflow-hidden" data-testid="about-mission">
-              <div className="absolute -right-12 -top-12 w-56 h-56 bg-[#3B82F6]/30 rounded-full blur-3xl" />
+            <div className="bg-[#072B61] noise-overlay rounded-3xl p-8 md:p-10 h-full text-white relative overflow-hidden" data-testid="about-mission">
+              <div className="absolute -right-12 -top-12 w-56 h-56 bg-[#072B61]/30 rounded-full blur-3xl" />
               <div className="relative">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#3B82F6] rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-[#072B61] rounded-xl flex items-center justify-center">
                     <Target className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-xs uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">Our Mission</div>
@@ -80,8 +81,8 @@ export default function About() {
       {/* TEAM */}
       <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
         <Reveal>
-          <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Leadership</div>
-          <h2 className="font-display font-black text-4xl md:text-5xl text-[#1E3A8A] mt-4 max-w-3xl leading-[1.05]">
+          <div className="text-xs uppercase tracking-[0.3em] text-[#B0B7C3] font-bold">Leadership</div>
+          <h2 className="font-display font-black text-4xl md:text-5xl text-[#072B61] mt-4 max-w-3xl leading-[1.05]">
             Meet Our Team.
           </h2>
           <p className="text-[#475569] mt-6 max-w-2xl leading-relaxed">
@@ -94,27 +95,27 @@ export default function About() {
             <StaggerItem key={m.name}>
               <article className="group relative bg-white border border-[#E2E8F0] rounded-3xl overflow-hidden product-card-hover h-full" data-testid={`team-card-${m.name.replace(/\s+/g, "-").toLowerCase()}`}>
                 <div className="grid sm:grid-cols-5 h-full">
-                  <div className="sm:col-span-2 aspect-square sm:aspect-auto relative overflow-hidden bg-[#1E3A8A]">
+                  <div className="sm:col-span-2 aspect-square sm:aspect-auto relative overflow-hidden bg-[#072B61]">
                     <img
                       src={m.image}
                       alt={m.name}
                       className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#1E3A8A]/40 to-transparent" />
-                    <div className="absolute top-4 left-4 bg-[#3B82F6] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#072B61]/40 to-transparent" />
+                    <div className="absolute top-4 left-4 bg-[#072B61] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full">
                       {m.qualification}
                     </div>
                   </div>
                   <div className="sm:col-span-3 p-7 md:p-8 flex flex-col">
-                    <div className="text-xs uppercase tracking-[0.25em] text-[#94A3B8] font-bold">{m.role}</div>
-                    <div className="font-display font-black text-3xl text-[#1E3A8A] mt-2 leading-tight">{m.name}</div>
+                    <div className="text-xs uppercase tracking-[0.25em] text-[#B0B7C3] font-bold">{m.role}</div>
+                    <div className="font-display font-black text-3xl text-[#072B61] mt-2 leading-tight">{m.name}</div>
                     <p className="text-[#475569] mt-5 text-sm leading-relaxed">{m.bio}</p>
                     <p className="text-[#475569] mt-3 text-sm leading-relaxed">{m.bio2}</p>
                     <div className="mt-auto pt-6 flex items-center gap-3">
-                      <a href={`mailto:${COMPANY.emails[0]}`} className="w-9 h-9 bg-[#F1F5F9] hover:bg-[#1E3A8A] hover:text-white rounded-full flex items-center justify-center transition-colors text-[#1E3A8A]" aria-label="Email">
+                      <a href={`mailto:${COMPANY.emails[0]}`} className="w-9 h-9 bg-[#F5F7FA] hover:bg-[#072B61] hover:text-white rounded-full flex items-center justify-center transition-colors text-[#072B61]" aria-label="Email">
                         <Mail className="w-4 h-4" />
                       </a>
-                      <a href="#" className="w-9 h-9 bg-[#F1F5F9] hover:bg-[#1E3A8A] hover:text-white rounded-full flex items-center justify-center transition-colors text-[#1E3A8A]" aria-label="LinkedIn">
+                      <a href="#" className="w-9 h-9 bg-[#F5F7FA] hover:bg-[#072B61] hover:text-white rounded-full flex items-center justify-center transition-colors text-[#072B61]" aria-label="LinkedIn">
                         <Linkedin className="w-4 h-4" />
                       </a>
                     </div>
@@ -127,10 +128,10 @@ export default function About() {
       </section>
 
       {/* Strengths */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#F1F5F9]">
+      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#F5F7FA]">
         <Reveal>
-          <div className="text-xs uppercase tracking-[0.3em] text-[#94A3B8] font-bold">Our edge</div>
-          <h2 className="font-display font-black text-4xl md:text-5xl text-[#1E3A8A] mt-4 max-w-3xl leading-[1.05]">
+          <div className="text-xs uppercase tracking-[0.3em] text-[#B0B7C3] font-bold">Our edge</div>
+          <h2 className="font-display font-black text-4xl md:text-5xl text-[#072B61] mt-4 max-w-3xl leading-[1.05]">
             What sets Revanth apart.
           </h2>
         </Reveal>
@@ -140,8 +141,8 @@ export default function About() {
             return (
               <StaggerItem key={w.title}>
                 <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 h-full product-card-hover">
-                  <Ico className="w-7 h-7 text-[#94A3B8]" />
-                  <div className="font-display font-black text-xl text-[#1E3A8A] mt-4">{w.title}</div>
+                  <Ico className="w-7 h-7 text-[#B0B7C3]" />
+                  <div className="font-display font-black text-xl text-[#072B61] mt-4">{w.title}</div>
                   <p className="text-[#475569] mt-2 text-sm leading-relaxed">{w.desc}</p>
                 </div>
               </StaggerItem>

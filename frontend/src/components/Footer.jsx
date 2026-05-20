@@ -1,79 +1,94 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
-import { COMPANY, NAV_LINKS, PRODUCTS } from "@/data/site";
+import { Phone, Mail, MapPin, ArrowUpRight, Download } from "lucide-react";
+import { COMPANY, NAV_LINKS, COMPANY_LEGAL } from "@/data/site";
+
+const LOGO = "/assets/logo.png";
+const BROCHURE = "/assets/brochure.pdf";
 
 export default function Footer() {
   return (
-    <footer data-testid="site-footer" className="bg-[#1E3A8A] text-white relative noise-overlay">
+    <footer data-testid="site-footer" className="bg-[#072B61] text-white relative noise-overlay">
       <div className="px-6 md:px-12 lg:px-24 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-5">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-[#3B82F6] flex items-center justify-center rounded-md">
-                <span className="font-display font-black text-xl text-white">R</span>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left — Logo + description */}
+          <div className="lg:col-span-5">
+            <div className="bg-white rounded-2xl p-5 inline-flex items-center gap-4 shadow-[0_8px_32px_rgba(0,0,0,0.15)]">
+              <img src={LOGO} alt="Revanth Concrete Products" className="h-20 w-20 object-contain" />
               <div className="leading-tight">
-                <div className="font-display font-black text-xl">REVANTH</div>
-                <div className="text-xs uppercase tracking-[0.25em] text-[#E2E8F0] font-bold">Concrete Products</div>
+                <div className="font-display font-black text-[#072B61] text-2xl tracking-tight">REVANTH</div>
+                <div className="text-[11px] uppercase tracking-[0.22em] text-[#475569] font-bold">Concrete Products</div>
+                <div className="text-[10px] uppercase tracking-[0.22em] text-[#B0B7C3] font-bold mt-1">By Maharudra Precast Pvt Ltd</div>
               </div>
             </div>
-            <p className="mt-6 text-sm text-white/70 max-w-md leading-relaxed">{COMPANY.description}</p>
-            <div className="mt-6 text-xs uppercase tracking-[0.2em] text-[#E2E8F0] font-bold">{COMPANY.tagline}</div>
+            <p className="mt-6 text-sm text-white/70 max-w-md leading-relaxed">
+              {COMPANY.whoWeAre[0]}
+            </p>
+            <div className="mt-5 text-xs uppercase tracking-[0.22em] text-[#B0B7C3] font-bold">{COMPANY.tagline}</div>
+            <a
+              href={BROCHURE}
+              download="Revanth_Concrete_Products.pdf"
+              data-testid="footer-cta-brochure"
+              className="mt-6 inline-flex items-center gap-2 bg-white text-[#072B61] hover:bg-[#B0B7C3] px-5 py-3 text-sm font-bold rounded-full transition-colors"
+            >
+              <Download className="w-4 h-4" /> Download Brochure
+            </a>
           </div>
 
-          <div className="md:col-span-2">
-            <div className="text-xs uppercase tracking-[0.25em] text-white/50 font-bold mb-4">Explore</div>
-            <ul className="space-y-2">
-              {NAV_LINKS.map((l) => (
-                <li key={l.to}>
-                  <Link to={l.to} className="text-sm hover:text-[#E2E8F0] transition-colors" data-testid={`footer-link-${l.label.toLowerCase()}`}>
-                    {l.label}
-                  </Link>
+          {/* Middle — Links */}
+          <div className="lg:col-span-3 grid grid-cols-2 gap-6">
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold mb-4">Explore</div>
+              <ul className="space-y-2">
+                {NAV_LINKS.map((l) => (
+                  <li key={l.to}>
+                    <Link to={l.to} className="text-sm text-white/80 hover:text-white transition-colors" data-testid={`footer-link-${l.label.toLowerCase()}`}>
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold mb-4">Reach Us</div>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-[#B0B7C3] flex-shrink-0 mt-1" />
+                  <span className="text-white/80 text-xs leading-relaxed">{COMPANY.address}</span>
                 </li>
-              ))}
-            </ul>
+                {COMPANY.phones.map((p) => (
+                  <li key={p} className="flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-[#B0B7C3]" />
+                    <a href={`tel:${p.replace(/\s/g, "")}`} className="text-white/80 hover:text-white text-xs">{p}</a>
+                  </li>
+                ))}
+                {COMPANY.emails.map((e) => (
+                  <li key={e} className="flex items-center gap-2">
+                    <Mail className="w-3.5 h-3.5 text-[#B0B7C3]" />
+                    <a href={`mailto:${e}`} className="text-white/80 hover:text-white break-all text-xs">{e}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="md:col-span-2">
-            <div className="text-xs uppercase tracking-[0.25em] text-white/50 font-bold mb-4">Products</div>
-            <ul className="space-y-2">
-              {PRODUCTS.slice(0, 8).map((p) => (
-                <li key={p.id}>
-                  <Link to="/products" className="text-sm text-white/80 hover:text-[#E2E8F0] transition-colors">
-                    {p.name}
-                  </Link>
-                </li>
+          {/* Right — Registration */}
+          <div className="lg:col-span-4">
+            <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold mb-4">Company Registration</div>
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 space-y-3" data-testid="footer-registration">
+              {COMPANY_LEGAL.map((r) => (
+                <div key={r.label} className="flex items-center justify-between gap-3 border-b border-white/10 pb-2 last:border-b-0 last:pb-0">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#B0B7C3] font-bold">{r.label}</span>
+                  <span className="text-xs text-white font-bold tracking-wide font-mono">{r.value}</span>
+                </div>
               ))}
-            </ul>
-          </div>
-
-          <div className="md:col-span-3">
-            <div className="text-xs uppercase tracking-[0.25em] text-white/50 font-bold mb-4">Reach Us</div>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#E2E8F0] flex-shrink-0 mt-0.5" />
-                <span className="text-white/80">{COMPANY.address}</span>
-              </li>
-              {COMPANY.phones.map((p) => (
-                <li key={p} className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-[#E2E8F0]" />
-                  <a href={`tel:${p.replace(/\s/g, "")}`} className="text-white/80 hover:text-white">{p}</a>
-                </li>
-              ))}
-              {COMPANY.emails.map((e) => (
-                <li key={e} className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-[#E2E8F0]" />
-                  <a href={`mailto:${e}`} className="text-white/80 hover:text-white break-all">{e}</a>
-                </li>
-              ))}
-            </ul>
-            <Link to="/contact" data-testid="footer-cta-quote" className="mt-6 inline-flex items-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] px-5 py-3 text-sm font-bold rounded-full transition-colors">
+            </div>
+            <Link to="/contact" data-testid="footer-cta-quote" className="mt-5 inline-flex items-center gap-2 bg-white text-[#072B61] hover:bg-[#B0B7C3] px-5 py-3 text-sm font-bold rounded-full transition-colors">
               Request a Quote <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-white/50">
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-white/50">
           <div>© {new Date().getFullYear()} {COMPANY.legal}. All rights reserved.</div>
           <div>Designed & engineered for precision concrete.</div>
         </div>

@@ -5,10 +5,10 @@
 
 :root {
   --rcp-bg: #FFFFFF;
-  --rcp-surface: #F1F5F9;
-  --rcp-primary: #1E3A8A;
+  --rcp-surface: #F5F7FA;
+  --rcp-primary: #072B61;
   --rcp-secondary: #475569;
-  --rcp-accent: #94A3B8;
+  --rcp-accent: #B0B7C3;
   --rcp-accent-dark: #475569;
   --rcp-border: #E2E8F0;
 }
@@ -87,7 +87,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #1E3A8A 0%, #475569 60%, #64748B 100%);
+  background: linear-gradient(135deg, #072B61 0%, #475569 60%, #64748B 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -105,8 +105,8 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #F1F5F9; }
-::-webkit-scrollbar-thumb { background: #1E3A8A; border-radius: 4px; }
+::-webkit-scrollbar-track { background: #F5F7FA; }
+::-webkit-scrollbar-thumb { background: #072B61; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #64748B; }
 
 /* Marquee */

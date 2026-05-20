@@ -35,10 +35,10 @@ export default function ContactForm() {
   if (done) {
     return (
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-8 text-center" data-testid="contact-success">
-        <CheckCircle2 className="w-12 h-12 text-[#94A3B8] mx-auto" />
-        <div className="font-display font-black text-2xl text-[#1E3A8A] mt-4">Message Sent</div>
+        <CheckCircle2 className="w-12 h-12 text-[#B0B7C3] mx-auto" />
+        <div className="font-display font-black text-2xl text-[#072B61] mt-4">Message Sent</div>
         <p className="text-[#475569] mt-2">Thanks for reaching out. We will get back to you within one business day.</p>
-        <button onClick={() => setDone(false)} className="mt-6 text-sm font-bold text-[#94A3B8]" data-testid="contact-send-another">Send another →</button>
+        <button onClick={() => setDone(false)} className="mt-6 text-sm font-bold text-[#B0B7C3]" data-testid="contact-send-another">Send another →</button>
       </motion.div>
     );
   }
@@ -53,7 +53,7 @@ export default function ContactForm() {
         onChange={onChange}
         required={required}
         data-testid={`contact-${name}`}
-        className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#94A3B8] outline-none px-4 py-3 text-[#1E3A8A] rounded-lg"
+        className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#B0B7C3] outline-none px-4 py-3 text-[#072B61] rounded-lg"
       />
     </label>
   );
@@ -75,7 +75,7 @@ export default function ContactForm() {
           rows={5}
           required
           data-testid="contact-message"
-          className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#94A3B8] outline-none px-4 py-3 text-[#1E3A8A] rounded-lg"
+          className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#B0B7C3] outline-none px-4 py-3 text-[#072B61] rounded-lg"
           placeholder="How can we help?"
         />
       </label>
@@ -83,7 +83,7 @@ export default function ContactForm() {
         type="submit"
         disabled={loading}
         data-testid="contact-submit"
-        className="inline-flex items-center justify-center gap-2 bg-[#1E3A8A] hover:bg-[#3B82F6] text-white px-8 py-4 font-bold tracking-wide rounded-full disabled:opacity-60 transition-colors"
+        className="inline-flex items-center justify-center gap-2 bg-[#072B61] hover:bg-[#072B61] text-white px-8 py-4 font-bold tracking-wide rounded-full disabled:opacity-60 transition-colors"
       >
         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
         {loading ? "Sending…" : "Send Message"}

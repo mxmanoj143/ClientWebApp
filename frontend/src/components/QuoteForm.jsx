@@ -36,10 +36,10 @@ export default function QuoteForm({ defaultProduct = "" }) {
   if (done) {
     return (
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-8 text-center" data-testid="quote-success">
-        <CheckCircle2 className="w-12 h-12 text-[#94A3B8] mx-auto" />
-        <div className="font-display font-black text-2xl text-[#1E3A8A] mt-4">Request Submitted</div>
+        <CheckCircle2 className="w-12 h-12 text-[#B0B7C3] mx-auto" />
+        <div className="font-display font-black text-2xl text-[#072B61] mt-4">Request Submitted</div>
         <p className="text-[#475569] mt-2">Thank you. Our sales team will get back to you within 24 hours.</p>
-        <button onClick={() => setDone(false)} className="mt-6 text-sm font-bold text-[#94A3B8]" data-testid="quote-new-request">Submit another →</button>
+        <button onClick={() => setDone(false)} className="mt-6 text-sm font-bold text-[#B0B7C3]" data-testid="quote-new-request">Submit another →</button>
       </motion.div>
     );
   }
@@ -54,7 +54,7 @@ export default function QuoteForm({ defaultProduct = "" }) {
         onChange={onChange}
         required={required}
         data-testid={`quote-${name}`}
-        className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#94A3B8] outline-none px-4 py-3 text-[#1E3A8A] rounded-lg transition-colors"
+        className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#B0B7C3] outline-none px-4 py-3 text-[#072B61] rounded-lg transition-colors"
         {...rest}
       />
     </label>
@@ -75,7 +75,7 @@ export default function QuoteForm({ defaultProduct = "" }) {
             onChange={onChange}
             required
             data-testid="quote-product"
-            className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#94A3B8] outline-none px-4 py-3 text-[#1E3A8A] rounded-lg"
+            className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#B0B7C3] outline-none px-4 py-3 text-[#072B61] rounded-lg"
           >
             <option value="">Select a product</option>
             {PRODUCTS.map((p) => <option key={p.id} value={p.name}>{p.name}</option>)}
@@ -93,7 +93,7 @@ export default function QuoteForm({ defaultProduct = "" }) {
           onChange={onChange}
           rows={4}
           data-testid="quote-message"
-          className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#94A3B8] outline-none px-4 py-3 text-[#1E3A8A] rounded-lg"
+          className="mt-2 w-full bg-white border border-[#E2E8F0] focus:border-[#B0B7C3] outline-none px-4 py-3 text-[#072B61] rounded-lg"
           placeholder="Tell us about your project, timelines, specifications…"
         />
       </label>
@@ -101,7 +101,7 @@ export default function QuoteForm({ defaultProduct = "" }) {
         type="submit"
         disabled={loading}
         data-testid="quote-submit"
-        className="inline-flex items-center justify-center gap-2 bg-[#3B82F6] hover:bg-[#2563EB] text-white px-8 py-4 font-bold tracking-wide rounded-full disabled:opacity-60 transition-colors"
+        className="inline-flex items-center justify-center gap-2 bg-[#072B61] hover:bg-[#051E47] text-white px-8 py-4 font-bold tracking-wide rounded-full disabled:opacity-60 transition-colors"
       >
         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
         {loading ? "Submitting…" : "Submit Quote Request"}

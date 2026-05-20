@@ -98,13 +98,13 @@ class CareerCreate(BaseModel):
 # ---------------- Helpers ----------------
 def _build_html(title: str, fields: dict) -> str:
     rows = "".join(
-        f"<tr><td style='padding:10px 14px;font-weight:600;background:#F1F5F9;color:#1E3A8A;width:32%;border-bottom:1px solid #E2E8F0;'>{k}</td>"
-        f"<td style='padding:10px 14px;color:#1E3A8A;border-bottom:1px solid #E2E8F0;'>{v or '-'}</td></tr>"
+        f"<tr><td style='padding:10px 14px;font-weight:600;background:#F5F7FA;color:#072B61;width:32%;border-bottom:1px solid #E2E8F0;'>{k}</td>"
+        f"<td style='padding:10px 14px;color:#072B61;border-bottom:1px solid #E2E8F0;'>{v or '-'}</td></tr>"
         for k, v in fields.items()
     )
     return f"""
     <div style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;">
-      <div style="background:#1E3A8A;padding:24px 28px;">
+      <div style="background:#072B61;padding:24px 28px;">
         <div style="color:#64748B;font-size:12px;letter-spacing:3px;font-weight:700;text-transform:uppercase;">Revanth Concrete Products</div>
         <div style="color:#FFFFFF;font-size:22px;font-weight:800;margin-top:6px;">{title}</div>
       </div>
