@@ -93,22 +93,26 @@ export default function About() {
         <Stagger className="grid md:grid-cols-2 gap-8 mt-14">
           {TEAM.map((m) => (
             <StaggerItem key={m.name}>
-              <article className="group relative bg-white border border-[#E2E8F0] rounded-3xl overflow-hidden product-card-hover h-full" data-testid={`team-card-${m.name.replace(/\s+/g, "-").toLowerCase()}`}>
-                <div className="grid sm:grid-cols-5 h-full">
-                  <div className="sm:col-span-2 aspect-square sm:aspect-auto relative overflow-hidden bg-[#072B61]">
+              <article className="group relative bg-white border border-[#B0B7C3] rounded-3xl overflow-hidden product-card-hover h-full" data-testid={`team-card-${m.name.replace(/\s+/g, "-").toLowerCase()}`}>
+                <div className="grid grid-cols-1 sm:grid-cols-5 h-full">
+                  <div className="sm:col-span-2 aspect-[4/5] sm:aspect-auto relative overflow-hidden bg-[#072B61]">
                     <img
                       src={m.image}
                       alt={m.name}
-                      className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      className="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#072B61]/40 to-transparent" />
-                    <div className="absolute top-4 left-4 bg-[#072B61] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full">
+                    {/* Qualification badge — desktop overlay only; mobile renders below image to avoid face overlap */}
+                    <div className="hidden sm:block absolute top-4 left-4 bg-[#072B61] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full">
                       {m.qualification}
                     </div>
                   </div>
-                  <div className="sm:col-span-3 p-7 md:p-8 flex flex-col">
-                    <div className="text-xs uppercase tracking-[0.25em] text-[#B0B7C3] font-bold">{m.role}</div>
-                    <div className="font-display font-black text-3xl text-[#072B61] mt-2 leading-tight">{m.name}</div>
+                  <div className="sm:col-span-3 p-6 sm:p-8 flex flex-col">
+                    <div className="sm:hidden inline-flex w-fit bg-[#072B61] text-white text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full mb-4" data-testid={`team-qualification-mobile-${m.name.replace(/\s+/g, "-").toLowerCase()}`}>
+                      {m.qualification}
+                    </div>
+                    <div className="text-xs uppercase tracking-[0.25em] text-[#072B61] font-bold">{m.role}</div>
+                    <div className="font-display font-black text-2xl sm:text-3xl text-[#072B61] mt-2 leading-tight">{m.name}</div>
                     <p className="text-[#475569] mt-5 text-sm leading-relaxed">{m.bio}</p>
                     <p className="text-[#475569] mt-3 text-sm leading-relaxed">{m.bio2}</p>
                     <div className="mt-auto pt-6 flex items-center gap-3">

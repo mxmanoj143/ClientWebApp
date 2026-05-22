@@ -35,40 +35,37 @@ export default function Footer() {
           </div>
 
           {/* Middle — Links */}
-          <div className="lg:col-span-3 grid grid-cols-2 gap-6">
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold mb-4">Explore</div>
-              <ul className="space-y-2">
-                {NAV_LINKS.map((l) => (
-                  <li key={l.to}>
-                    <Link to={l.to} className="text-sm text-white/80 hover:text-white transition-colors" data-testid={`footer-link-${l.label.toLowerCase()}`}>
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold mb-4">Reach Us</div>
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-start gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#B0B7C3] flex-shrink-0 mt-1" />
-                  <span className="text-white/80 text-xs leading-relaxed">{COMPANY.address}</span>
+          <div className="lg:col-span-3">
+            <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold mb-4">Explore</div>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+              {NAV_LINKS.map((l) => (
+                <li key={l.to}>
+                  <Link to={l.to} className="text-sm text-white/80 hover:text-white transition-colors" data-testid={`footer-link-${l.label.toLowerCase()}`}>
+                    {l.label}
+                  </Link>
                 </li>
-                {COMPANY.phones.map((p) => (
-                  <li key={p} className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-[#B0B7C3]" />
-                    <a href={`tel:${p.replace(/\s/g, "")}`} className="text-white/80 hover:text-white text-xs">{p}</a>
-                  </li>
-                ))}
-                {COMPANY.emails.map((e) => (
-                  <li key={e} className="flex items-center gap-2">
-                    <Mail className="w-3.5 h-3.5 text-[#B0B7C3]" />
-                    <a href={`mailto:${e}`} className="text-white/80 hover:text-white break-all text-xs">{e}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              ))}
+            </ul>
+
+            <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold mt-8 mb-4">Reach Us</div>
+            <ul className="space-y-3 text-sm" data-testid="footer-reach-us">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-[#B0B7C3] flex-shrink-0 mt-0.5" />
+                <span className="text-white/80 text-xs leading-relaxed">{COMPANY.address}</span>
+              </li>
+              {COMPANY.phones.map((p) => (
+                <li key={p} className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-[#B0B7C3] flex-shrink-0" />
+                  <a href={`tel:${p.replace(/\s/g, "")}`} className="text-white/85 hover:text-white text-sm font-semibold whitespace-nowrap tracking-wide">{p}</a>
+                </li>
+              ))}
+              {COMPANY.emails.map((e) => (
+                <li key={e} className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-[#B0B7C3] flex-shrink-0" />
+                  <a href={`mailto:${e}`} className="text-white/80 hover:text-white break-all text-sm">{e}</a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Right — Registration */}

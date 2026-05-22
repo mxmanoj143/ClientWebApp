@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
+import HomeSlider from "@/components/HomeSlider";
 import { COMPANY, SERVICES, PRODUCTS, FAQS, WHY_US } from "@/data/site";
 
 const ICONS = { Package, HardHat, ClipboardList, ShieldCheck, Truck, Wrench, Leaf, MapPin, Handshake };
@@ -99,6 +100,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SERVICES SLIDER (above Who We Are) */}
+      <HomeSlider />
 
       {/* WHO WE ARE */}
       <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
