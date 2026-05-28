@@ -58,9 +58,13 @@ export const PRODUCT_IMAGES = {
     `${P}Paver_Tiles_3.jpeg`,
     `${P}Paver_Tiles_4.jpeg`,
   ],
-  "grass-pavers": [
+  "set-of-5": [
     `${P}Set-Of-5-1.jpeg`,
     `${P}Set-Of-5-2.jpeg`,
+  ],
+  "grass-pavers": [
+    `${P}Set-Of-5-2.jpeg`,
+    `${P}Set-Of-5-1.jpeg`,
   ],
   "cobble-stone": [
     `${P}Cobble-Stone-1.jpeg`,
@@ -226,4 +230,3 @@ export const PRODUCT_IMAGES = {
 };
 
 export const getProductImages = (productId) => PRODUCT_IMAGES[productId] || [];
-= (productId) => PRODUCT_IMAGES[productId] || [];
