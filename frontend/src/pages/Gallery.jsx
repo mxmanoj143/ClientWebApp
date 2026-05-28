@@ -1,33 +1,48 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import { PRODUCTS } from "@/data/site";
+import { getProductImages } from "@/data/productImages";
 
-const GALLERY = PRODUCTS.map((p) => ({ src: p.img, label: p.name, category: p.category }));
+// Build gallery from all real product images bundled in /public/assets/products/
+function buildGallery() {
+  const out = [];
+  for (const p of PRODUCTS) {
+    const imgs = getProductImages(p.id);
+    imgs.forEach((src, i) => {
+      out.push({ src, label: `${p.name}${imgs.length > 1 ? ` · ${i + 1}` : ""}`, category: p.category });
+    });
+  }
+  return out;
+}
 
 export default function Gallery() {
   const [active, setActive] = useState(null);
+  const gallery = useMemo(buildGallery, []);
 
   return (
     <div data-testid="gallery-page">
       <PageHeader
         overline="Gallery"
         title="A visual catalogue of precast in motion."
-        subtitle="Yard, factory, despatch and on-site — moments that capture the precision behind every Revanth product."
-        image="https://images.unsplash.com/photo-1759802805758-054116467e0a?crop=entropy&cs=srgb&fm=jpg&q=85&w=2400"
+        subtitle="Real photos of our products — directly from the factory floor and finished installations."
+        image="/assets/about.png"
       />
 
       <section className="px-6 md:px-12 lg:px-24 py-20">
+        <div className="text-xs uppercase tracking-[0.3em] text-[#072B61] font-bold mb-8" data-testid="gallery-count">
+          {gallery.length} Images · {PRODUCTS.length} Products
+        </div>
         <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 [column-fill:_balance]">
-          {GALLERY.map((g, i) => (
+          {gallery.map((g, i) => (
             <button
-              key={i}
+              key={`${g.src}-${i}`}
               onClick={() => setActive(g)}
               data-testid={`gallery-tile-${i}`}
               className="block w-full mb-4 break-inside-avoid relative group overflow-hidden rounded-2xl bg-[#F5F7FA]"
             >
-              <img src={g.src} alt={g.label} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={g.src} alt={g.label} loading="lazy" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#072B61]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="text-[10px] uppercase tracking-[0.25em] text-[#B0B7C3] font-bold">{g.category}</div>

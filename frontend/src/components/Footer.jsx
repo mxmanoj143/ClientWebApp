@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowUpRight, Download } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight, Download, FileText } from "lucide-react";
 import { COMPANY, NAV_LINKS, COMPANY_LEGAL } from "@/data/site";
 
 const LOGO = "/assets/logo.png";
@@ -31,6 +31,15 @@ export default function Footer() {
               className="mt-6 inline-flex items-center gap-2 bg-white text-[#072B61] hover:bg-[#B0B7C3] px-5 py-3 text-sm font-bold rounded-full transition-colors"
             >
               <Download className="w-4 h-4" /> Download Brochure
+            </a>
+            <a
+              href="https://drive.google.com/drive/folders/13kcnfmg1cDbcuHoXAHo2oqKaUq62Xqj7?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="footer-cta-product-brochure"
+              className="mt-3 ml-0 sm:ml-3 inline-flex items-center gap-2 border border-[#B0B7C3] text-white hover:bg-white hover:text-[#072B61] px-5 py-3 text-sm font-bold rounded-full transition-colors"
+            >
+              <FileText className="w-4 h-4" /> Product Brochure
             </a>
           </div>
 

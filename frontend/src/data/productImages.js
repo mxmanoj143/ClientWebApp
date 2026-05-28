@@ -8,7 +8,6 @@ export const PRODUCT_IMAGES = {
     `${P}RCC-Hume-Pipe-1.jpeg`,
     `${P}RCC-Hume-Pipe-2.jpeg`,
     `${P}RCC-Hume-Pipe-3.jpeg`,
-    `${P}RCC-Hume-Pipe-4.jpeg`,
     `${P}RCC-Hume-Pipe-5.jpeg`,
     `${P}RCC-Hume-Pipe-6.jpeg`,
   ],
@@ -227,3 +226,4 @@ export const PRODUCT_IMAGES = {
 };
 
 export const getProductImages = (productId) => PRODUCT_IMAGES[productId] || [];
+= (productId) => PRODUCT_IMAGES[productId] || [];

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowRight, ArrowUpRight, Package, HardHat, ClipboardList, ShieldCheck, Truck, Wrench,
-  Leaf, MapPin, Handshake, Phone, Mail, Plus, Minus,
+  Leaf, MapPin, Handshake, Phone, Mail, Plus, Minus, Download, FileText,
 } from "lucide-react";
 import { useState } from "react";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
@@ -286,10 +286,27 @@ export default function Home() {
               </h2>
               <p className="text-white/70 mt-5 max-w-lg">Send us your drawings or a brief and our engineers will revert with feasibility, lead time and a competitive quote.</p>
             </div>
-            <div className="flex flex-wrap gap-4 lg:justify-end">
+            <div className="flex flex-wrap gap-3 lg:justify-end">
               <Link to="/contact" state={{ tab: "quote" }} data-testid="bottom-cta-quote" className="inline-flex items-center gap-2 bg-[#072B61] hover:bg-[#051E47] text-white px-7 py-4 font-bold rounded-full transition-colors">
                 Request a Quote <ArrowRight className="w-4 h-4" />
               </Link>
+              <a
+                href="/assets/brochure.pdf"
+                download="Revanth_Concrete_Products.pdf"
+                data-testid="bottom-cta-brochure"
+                className="inline-flex items-center gap-2 bg-white text-[#072B61] hover:bg-[#B0B7C3] px-7 py-4 font-bold rounded-full transition-colors"
+              >
+                <Download className="w-4 h-4" /> Download Brochure
+              </a>
+              <a
+                href="https://drive.google.com/drive/folders/13kcnfmg1cDbcuHoXAHo2oqKaUq62Xqj7?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="bottom-cta-product-brochure"
+                className="inline-flex items-center gap-2 border border-white/30 text-white hover:bg-white hover:text-[#072B61] px-7 py-4 font-bold rounded-full transition-colors"
+              >
+                <FileText className="w-4 h-4" /> Product Brochure
+              </a>
               <a href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`} data-testid="bottom-cta-call" className="inline-flex items-center gap-2 glass-dark text-white px-7 py-4 font-bold rounded-full hover:bg-white/10 transition-colors">
                 <Phone className="w-4 h-4" /> {COMPANY.phones[0]}
               </a>

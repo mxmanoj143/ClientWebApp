@@ -31,7 +31,7 @@ export default function HomeSlider() {
 
   return (
     <section
-      className="relative w-full bg-[#072B61] overflow-hidden"
+      className="relative w-full bg-[#072B61] overflow-hidden pt-20 sm:pt-24"
       data-testid="home-slider"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -53,7 +53,8 @@ export default function HomeSlider() {
             <img
               src={SLIDES[index].src}
               alt={SLIDES[index].title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
+              style={{ objectPosition: "center 30%" }}
             />
             {/* Navy gradient overlay for readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#072B61]/55 via-[#072B61]/20 to-[#072B61]/80" />
