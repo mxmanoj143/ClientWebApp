@@ -63,8 +63,8 @@ export const PRODUCT_IMAGES = {
     `${P}Set-Of-5-2.jpeg`,
   ],
   "grass-pavers": [
-    `${P}Set-Of-5-2.jpeg`,
-    `${P}Set-Of-5-1.jpeg`,
+    `${P}Grass-Paver-1.jpg`,
+    `${P}Grass-Paver-2.jpg`,
   ],
   "cobble-stone": [
     `${P}Cobble-Stone-1.jpeg`,
