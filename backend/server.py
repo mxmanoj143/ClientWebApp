@@ -98,19 +98,28 @@ class CareerCreate(BaseModel):
 # ---------------- Helpers ----------------
 def _build_html(title: str, fields: dict) -> str:
     rows = "".join(
-        f"<tr><td style='padding:10px 14px;font-weight:600;background:#F5F7FA;color:#072B61;width:32%;border-bottom:1px solid #E2E8F0;'>{k}</td>"
-        f"<td style='padding:10px 14px;color:#072B61;border-bottom:1px solid #E2E8F0;'>{v or '-'}</td></tr>"
+        f"<tr><td style='padding:12px 16px;font-weight:600;background:#F5F7FA;color:#072B61;width:34%;border-bottom:1px solid #B0B7C3;'>{k}</td>"
+        f"<td style='padding:12px 16px;color:#072B61;border-bottom:1px solid #B0B7C3;'>{v or '-'}</td></tr>"
         for k, v in fields.items()
     )
     return f"""
-    <div style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;">
-      <div style="background:#072B61;padding:24px 28px;">
-        <div style="color:#64748B;font-size:12px;letter-spacing:3px;font-weight:700;text-transform:uppercase;">Revanth Concrete Products</div>
-        <div style="color:#FFFFFF;font-size:22px;font-weight:800;margin-top:6px;">{title}</div>
+    <div style="font-family:Arial,Helvetica,sans-serif;max-width:680px;margin:0 auto;background:#FFFFFF;border:1px solid #B0B7C3;border-radius:14px;overflow:hidden;">
+      <div style="background:#072B61;padding:26px 30px;">
+        <div style="color:#B0B7C3;font-size:11px;letter-spacing:3px;font-weight:700;text-transform:uppercase;">Revanth Concrete Products</div>
+        <div style="color:#FFFFFF;font-size:22px;font-weight:800;margin-top:8px;">{title}</div>
+        <div style="color:#B0B7C3;font-size:12px;margin-top:6px;">New Customer Enquiry Received</div>
       </div>
-      <div style="padding:24px 28px;">
-        <table style="width:100%;border-collapse:collapse;font-size:14px;">{rows}</table>
-        <p style="margin-top:24px;color:#475569;font-size:12px;">Submitted from reventhconcrete.com on {datetime.now(timezone.utc).strftime('%d %b %Y, %H:%M UTC')}</p>
+      <div style="padding:24px 30px;">
+        <div style="font-size:13px;color:#475569;margin-bottom:12px;">Customer Details</div>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;border:1px solid #B0B7C3;border-radius:8px;overflow:hidden;">{rows}</table>
+        <div style="margin-top:22px;padding:14px 16px;background:#F5F7FA;border-left:4px solid #072B61;border-radius:6px;font-size:13px;color:#072B61;">
+          <strong>Source:</strong> Website Contact / Quote Form<br/>
+          <strong>Submitted On:</strong> {datetime.now(timezone.utc).strftime('%d %b %Y, %H:%M UTC')}
+        </div>
+        <p style="margin-top:22px;color:#475569;font-size:13px;line-height:1.6;">Please contact the customer at the earliest. This notification was generated automatically by revanthconcrete.com.</p>
+      </div>
+      <div style="background:#072B61;padding:14px 30px;color:#B0B7C3;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;text-align:center;">
+        Shaping Strength · Delivering Trust
       </div>
     </div>
     """
@@ -157,14 +166,14 @@ async def create_contact(payload: ContactCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     await db.contact_submissions.insert_one(doc)
 
-    html = _build_html("New Contact Enquiry", {
+    html = _build_html("New Enquiry – " + obj.name, {
         "Name": obj.name,
-        "Email": obj.email,
-        "Phone": obj.phone,
+        "Phone Number": obj.phone,
+        "Email Address": obj.email,
         "Subject": obj.subject,
-        "Message": obj.message,
+        "Customer Message": obj.message,
     })
-    await _send_email(f"New Contact Enquiry from {obj.name}", html)
+    await _send_email(f"New Enquiry – {obj.name}", html)
     return obj
 
 
@@ -175,17 +184,17 @@ async def create_quote(payload: QuoteCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     await db.quote_submissions.insert_one(doc)
 
-    html = _build_html("New Quotation Request", {
+    html = _build_html("New Enquiry – " + obj.name, {
         "Name": obj.name,
-        "Email": obj.email,
-        "Phone": obj.phone,
-        "Company": obj.company,
+        "Phone Number": obj.phone,
+        "Email Address": obj.email,
+        "Company / Site": obj.company,
         "Product": obj.product,
         "Quantity": obj.quantity,
         "Location": obj.location,
-        "Notes": obj.message,
+        "Project Details": obj.message,
     })
-    await _send_email(f"New Quote Request: {obj.product} - {obj.name}", html)
+    await _send_email(f"New Enquiry – {obj.name}", html)
     return obj
 
 

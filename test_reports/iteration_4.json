@@ -1,0 +1,62 @@
+{
+  "summary": "Iteration 5 verification (backend + frontend). Backend pytest 8/8 PASS, health endpoint returns email_configured:true and notification_count:1. ALL frontend requirements verified: Home slider sits ABOVE hero (DOM order verified), edge-to-edge full-width (1920/1920), 3s auto-advance confirmed (dot 0->1 in 3.5s), slider testids all present, all Get Quote CTAs (navbar/hero/footer/bottom/mobile) open Quote tab as default with bg-[#072B61] text-white active and quote-form visible (contact-form hidden), Footer + Contact address links use href=https://share.google/ZAPUEY6K2WGXmVJWH with target=_blank rel='noopener noreferrer', Careers shows opening-sales-executive + opening-operations-executive (Jr Accountant GONE), apply-btn-operations-executive prefills career-position='Operations Executive', Google Maps iframe inside data-testid='contact-map' wrapper has src containing 'Dhayari, Pune, Maharashtra 411041', Hume Pipes shows real /assets/products/RCC-Hume-Pipe-1.jpeg with 6 unique thumbs, Paver Blocks renders 10 unique thumbs, NO upload-* testids exist, all static assets (logo, brochure, product images, slider images) return 200. CRITICAL BLOCKING ISSUE: Resend email send is FAILING for every POST /api/contact and /api/quote — backend.err.log shows 'Resend send failed: You can only send testing emails to your own email address (enquiry.revanthconcrete@gmail.com)'. PRD explicitly requires 'backend log should show successful resend send (no warning skip)' — this requirement is NOT met.",
+  "backend_issues": {
+    "critical": [
+      {"endpoint": "POST /api/contact, POST /api/quote, POST /api/career", "issue": "Resend API returns 422-equivalent error: 'You can only send testing emails to your own email address (enquiry.revanthconcrete@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the from address to an email using this domain.' API still returns 200 to client because _send_email is non-blocking, but NO email is actually delivered to sales.revanthconcrete@gmail.com. PRD requirement 'log should show successful resend send (no warning skip)' is NOT satisfied. Verified by triggering live POST and tailing backend.err.log immediately after.", "priority": "CRITICAL"}
+    ],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Home (likely Navbar 'Get Quote' Link wrapping a Button, or product card containing the Expand button)", "issue": "React hydration warning repeated 3x in console on every Home load: 'In HTML, button cannot be a descendant of button. This will cause a hydration error.' Indicates a <button> nested inside another <button>. PRD says 'No console errors' on Home etc.", "selector": "data-testid grid-card-* contains aria-label='Expand' button inside it (visible on product list pages); also possibly hero/CTA wrappers", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Products (water-management, paving-solutions)", "issues": ["Image lightbox: opens correctly on Expand click and overlay renders (data-testid=lightbox-{slug}), but PRD-specified generic testids 'lightbox', 'lightbox-prev', 'lightbox-next' are NOT present in DOM (testid is per-product like lightbox-hume-pipes, and no prev/next buttons were detected via those testids). Expand trigger button also lacks a data-testid (only aria-label='Expand')."]},
+      {"screen": "Contact page", "issues": ["data-testid='contact-map' is attached to the outer <section> wrapper rather than the <iframe>. The Google Maps iframe (correct src with 'Dhayari, Pune, Maharashtra 411041') is a descendant — descendant search still passes spec, but the testid would conventionally go directly on the iframe for cleaner E2E selectors."]}
+    ]
+  },
+  "verified_assertions": {
+    "health": "/api/health -> {status:ok, email_configured:true, notification_count:1}",
+    "slider_dom_order": "data-testid home-slider DOM-precedes hero-cta-quote (compareDocumentPosition FOLLOWING flag)",
+    "slider_fullwidth": "home-slider rect: left=0 right=1920 width=1920 vw=1920 — true edge-to-edge",
+    "slider_autoadvance_3s": "Active dot moved index 0 -> 1 after 3.5s wait (cursor moved off slider)",
+    "slider_testids": "home-slider, slider-prev, slider-next, slider-dot-0/1/2 all present",
+    "slider_assets_200": "/assets/service_supply.png, service_install.png, service_consult.png all return 200",
+    "quote_ctas": "navbar-cta-quote / hero-cta-quote / footer-cta-quote / bottom-cta-quote / mobile-cta-quote — all route to /contact with tab-quote class including bg-[#072B61] text-white AND quote-form visible AND contact-form NOT visible",
+    "address_links": "footer-address-link and contact-address-link both -> href=https://share.google/ZAPUEY6K2WGXmVJWH, target=_blank, rel=noopener noreferrer",
+    "careers": "opening-sales-executive + opening-operations-executive present, opening-jr-accountant GONE, apply-btn-operations-executive prefills career-position='Operations Executive', card text confirms 'Operations Executive / Pune / Graduate in Commerce / Accounting / 1-2 years of accounting experience / Working knowledge of GST, taxes & challans / Proficient in Tally / Excel'",
+    "google_map": "iframe src='https://www.google.com/maps?q=Gopibhagwant+First+Floor,+Raykar+Mala+Rd,+Mahadev+Nagar,+Dhayari,+Pune,+Maharashtra+411041' — contains Dhayari/Pune/411041",
+    "product_images_hume": "/products/water-management Hume Pipes shows /assets/products/RCC-Hume-Pipe-1.jpeg and 2..6.jpeg as 6 unique thumbs (12 total DOM nodes because the strip is rendered for both layout breakpoints)",
+    "product_images_paver": "/products/paving-solutions Paver Blocks renders 10 unique thumbs (20 DOM nodes due to dup desktop/mobile strip rendering)",
+    "no_upload_ui": "querySelectorAll('[data-testid^=\"upload-\"]') length = 0 on water-management",
+    "static_assets": "logo.png, brochure.pdf, RCC-Hume-Pipe-1.jpeg, Paver-Block-1.jpeg, service_supply/install/consult.png all 200",
+    "backend_pytest": "8/8 PASS (test_health, test_root, test_contact_create_and_list, test_contact_invalid_email, test_quote_create_and_list, test_quote_with_brochure_product, test_career_create, test_career_minimal)",
+    "resend_failure_evidence": "backend.err.log timestamped 2026-05-28 10:35:45..10:36:14 — 6+ ERROR entries 'Resend send failed: You can only send testing emails to your own email address (enquiry.revanthconcrete@gmail.com)' triggered by both pre-existing submissions and the fresh TEST_Iter5_Contact POST"
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "CRITICAL: Resolve Resend free-tier sandbox limitation. The active key (re_MLmfUk91_...) is bound to account enquiry.revanthconcrete@gmail.com and CANNOT deliver to any other recipient (sales.revanthconcrete@gmail.com). Options: (a) Change NOTIFICATION_EMAILS=enquiry.revanthconcrete@gmail.com (same as account owner) so sends succeed immediately while domain is being verified, OR (b) Verify a custom sending domain at resend.com/domains and update SENDER_EMAIL to use that domain, OR (c) Use a Resend production API key with domain verification already complete. Without one of these, contact/quote submissions silently drop emails despite returning 200.",
+    "Fix nested-button hydration warning on Home/Products — wrap the Expand/maximize trigger so it is NOT a <button> inside another <button> (likely grid-card-* button contains the Expand button). Refactor outer card to a non-button (div with role=button) or move Expand outside the card button.",
+    "Add data-testid to: (a) the Expand/maximize trigger (e.g. img-zoom-{slug}-{idx}), (b) generic lightbox modal as data-testid='lightbox' alongside existing lightbox-{slug}, (c) lightbox-prev / lightbox-next nav controls inside the lightbox.",
+    "Optional: Move data-testid='contact-map' from the wrapper <section> onto the actual <iframe> for cleaner selector semantics."
+  ],
+  "critical_code_review_comments": [
+    "server.py _send_email logs ERROR on Resend failure but the POST handler still returns 200 with persisted id — the API gives a misleading success signal to the frontend (user sees success toast, but ops team never gets the lead). Recommend either (a) bubbling the email failure to a 502 response when emails are mandatory, or (b) recording email_status='failed' on the DB doc plus a periodic retry queue, or (c) at minimum surfacing a meta field in the response so the FE can show 'submitted, ops team will be notified soon' instead of an unconditional success.",
+    "Carry-over: server.py uses deprecated @app.on_event('shutdown'), CORS allow_origins=['*'] combined with allow_credentials=True is rejected by browsers, no rate-limiting on public POST endpoints, no pagination on list endpoints.",
+    "ProductImage strip is rendered twice in the DOM (once per breakpoint) — every thumb data-testid duplicates (e.g. 6 unique hume thumbs become 12 in querySelectorAll). Consider rendering once with responsive CSS or suffixing testids with -desktop/-mobile to avoid ambiguous selectors in E2E tests.",
+    "Document <title> still 'Emergent | Fullstack App' (carry-over) — should be branded 'Revanth Concrete Products'.",
+    "Resend API key, sender email and notification list are read at module import (resend.api_key = os.environ.get(...)). Hot-reload of .env requires backend restart — this is fine but worth a code comment so future devs don't get confused when ENV edits 'don't apply'."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% pytest, but ~0% email delivery (critical)", "frontend": "~95% (all PRD-listed flows pass; lightbox testids and one hydration warning are gaps)"},
+  "test_credentials": "N/A (no auth)",
+  "seed_data_creation": "1 fresh TEST_Iter5_Contact contact submission was persisted to MongoDB during live verification (id a98a8902-cb41-4f6b-b691-c54044effd8b). Pre-existing TEST_ prefixed rows from prior iterations also present.",
+  "retest_needed": true,
+  "main_agent_can_self_test": false,
+  "context_for_next_testing_agent": "Public URL: https://infra-build-2.preview.emergentagent.com. Pytest at /app/backend/tests/test_api.py (8/8). Resend account owner = enquiry.revanthconcrete@gmail.com (only legal recipient on current sandbox key). To verify a real Resend SEND, after fix, look in /var/log/supervisor/backend.err.log for absence of 'Resend send failed' lines and instead check backend stdout for the resend id (server.py returns it from _send_email but currently does not log it on success — consider adding logger.info(f'Resend sent: {email_id}')). Lightbox testid is per-product: lightbox-{slug}; prev/next buttons inside it currently lack lightbox-prev/lightbox-next testids — confirmed via querySelector.",
+  "rca of the issue": "RCA — Resend email failure: The Resend API key configured in /app/backend/.env (RESEND_API_KEY=re_MLmfUk91_...) belongs to a Resend account that has NOT verified any sending domain. Per Resend free-tier / sandbox policy, such accounts may only send to the account owner's verified email (enquiry.revanthconcrete@gmail.com). The current configuration uses NOTIFICATION_EMAILS=sales.revanthconcrete@gmail.com which is NOT the owner, so every send is rejected with: 'You can only send testing emails to your own email address...To send emails to other recipients, please verify a domain at resend.com/domains'. Because _send_email() in server.py catches the exception, logs ERROR, and returns None, the POST handlers still return 200 to the client. Reproduction: curl -X POST $BASE/api/contact -d '{name,email,phone,message}' -> 200; tail /var/log/supervisor/backend.err.log -> Resend send failed error. Mitigation: see Action Items #1 (switch NOTIFICATION_EMAILS to the verified owner address OR verify a domain on resend.com and update SENDER_EMAIL to use that domain)."
+}

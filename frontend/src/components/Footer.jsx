@@ -51,7 +51,15 @@ export default function Footer() {
             <ul className="space-y-3 text-sm" data-testid="footer-reach-us">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#B0B7C3] flex-shrink-0 mt-0.5" />
-                <span className="text-white/80 text-xs leading-relaxed">{COMPANY.address}</span>
+                <a
+                  href={COMPANY.mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="footer-address-link"
+                  className="text-white/80 hover:text-white text-xs leading-relaxed cursor-pointer hover:underline"
+                >
+                  {COMPANY.address}
+                </a>
               </li>
               {COMPANY.phones.map((p) => (
                 <li key={p} className="flex items-center gap-3">
@@ -79,7 +87,7 @@ export default function Footer() {
                 </div>
               ))}
             </div>
-            <Link to="/contact" data-testid="footer-cta-quote" className="mt-5 inline-flex items-center gap-2 bg-white text-[#072B61] hover:bg-[#B0B7C3] px-5 py-3 text-sm font-bold rounded-full transition-colors">
+            <Link to="/contact" state={{ tab: "quote" }} data-testid="footer-cta-quote" className="mt-5 inline-flex items-center gap-2 bg-white text-[#072B61] hover:bg-[#B0B7C3] px-5 py-3 text-sm font-bold rounded-full transition-colors">
               Request a Quote <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>

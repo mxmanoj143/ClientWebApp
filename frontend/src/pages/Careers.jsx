@@ -30,8 +30,8 @@ const OPENINGS = [
     ],
   },
   {
-    id: "jr-accountant",
-    title: "Jr. Accountant",
+    id: "operations-executive",
+    title: "Operations Executive",
     location: "Pune",
     type: "Full-Time",
     requirements: [

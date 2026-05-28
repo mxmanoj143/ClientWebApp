@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const SLIDES = [
-  { src: "/assets/service_supply.png", title: "Engineered Precast Supply" },
-  { src: "/assets/service_install.png", title: "Expert Installation Services" },
-  { src: "/assets/service_consult.png", title: "Project Consultancy" },
+  { src: "/assets/service_supply.png", title: "Engineered Precast Supply", caption: "Premium precast components manufactured at scale." },
+  { src: "/assets/service_install.png", title: "Expert Installation Services", caption: "Site survey through final placement — done right." },
+  { src: "/assets/service_consult.png", title: "Project Consultancy", caption: "End-to-end planning, design and execution support." },
 ];
-const INTERVAL = 4000;
+const INTERVAL = 3000;
 
 export default function HomeSlider() {
   const [index, setIndex] = useState(0);
@@ -31,71 +31,82 @@ export default function HomeSlider() {
 
   return (
     <section
-      className="px-6 md:px-12 lg:px-24 py-16 md:py-20"
+      className="relative w-full bg-[#072B61] overflow-hidden"
       data-testid="home-slider"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative overflow-hidden rounded-3xl bg-[#072B61] shadow-[0_24px_48px_rgba(7,43,97,0.18)] border border-[#B0B7C3]/40">
-        <div
-          className="relative w-full aspect-square sm:aspect-[16/9] lg:aspect-[21/9] max-h-[640px]"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={SLIDES[index].src}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
+      <div
+        className="relative w-full h-[58vh] sm:h-[68vh] lg:h-[85vh] min-h-[420px] max-h-[820px]"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={SLIDES[index].src}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <img
               src={SLIDES[index].src}
               alt={SLIDES[index].title}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="w-full h-full object-cover"
             />
-          </AnimatePresence>
+            {/* Navy gradient overlay for readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#072B61]/55 via-[#072B61]/20 to-[#072B61]/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#072B61]/65 via-transparent to-transparent" />
+          </motion.div>
+        </AnimatePresence>
 
-          {/* Subtle navy gradient at bottom for caption legibility */}
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#072B61]/70 to-transparent pointer-events-none" />
-
-          {/* Caption */}
-          <div className="absolute bottom-5 sm:bottom-7 left-5 sm:left-8 right-5 sm:right-auto sm:max-w-md">
-            <div className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#B0B7C3] font-bold">Services</div>
-            <div className="font-display font-black text-white text-xl sm:text-2xl lg:text-3xl mt-1 leading-tight">
-              {SLIDES[index].title}
-            </div>
-          </div>
-
-          {/* Controls */}
-          <button
-            onClick={prev}
-            data-testid="slider-prev"
-            className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-5 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white backdrop-blur rounded-full flex items-center justify-center text-[#072B61] shadow-lg transition-colors"
-            aria-label="Previous slide"
+        {/* Caption */}
+        <div className="absolute bottom-12 sm:bottom-16 lg:bottom-24 left-6 sm:left-12 lg:left-24 right-6 sm:right-auto max-w-[560px]">
+          <div className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#B0B7C3] font-bold">Our Services</div>
+          <motion.div
+            key={SLIDES[index].title}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="font-display font-black text-white text-3xl sm:text-4xl lg:text-5xl mt-2 sm:mt-3 leading-[1.1]"
           >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={next}
-            data-testid="slider-next"
-            className="absolute top-1/2 -translate-y-1/2 right-3 sm:right-5 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white backdrop-blur rounded-full flex items-center justify-center text-[#072B61] shadow-lg transition-colors"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          {/* Indicators */}
-          <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 sm:left-auto sm:right-8 sm:translate-x-0 flex gap-2">
-            {SLIDES.map((s, i) => (
-              <button
-                key={i}
-                onClick={() => setIndex(i)}
-                data-testid={`slider-dot-${i}`}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all ${i === index ? "bg-white w-8" : "bg-white/50 w-3 hover:bg-white/80"}`}
-              />
-            ))}
+            {SLIDES[index].title}
+          </motion.div>
+          <div className="text-sm sm:text-base text-white/80 mt-3 max-w-md hidden sm:block">
+            {SLIDES[index].caption}
           </div>
+        </div>
+
+        {/* Controls */}
+        <button
+          onClick={prev}
+          data-testid="slider-prev"
+          className="absolute top-1/2 -translate-y-1/2 left-3 sm:left-6 w-10 h-10 sm:w-12 sm:h-12 bg-white/15 hover:bg-white backdrop-blur-md rounded-full flex items-center justify-center text-white hover:text-[#072B61] transition-colors border border-white/20"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          onClick={next}
+          data-testid="slider-next"
+          className="absolute top-1/2 -translate-y-1/2 right-3 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-white/15 hover:bg-white backdrop-blur-md rounded-full flex items-center justify-center text-white hover:text-[#072B61] transition-colors border border-white/20"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+
+        {/* Indicators */}
+        <div className="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+          {SLIDES.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              data-testid={`slider-dot-${i}`}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all ${i === index ? "bg-white w-10" : "bg-white/40 w-3 hover:bg-white/70"}`}
+            />
+          ))}
         </div>
       </div>
     </section>

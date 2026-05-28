@@ -76,6 +76,7 @@ export default function Navbar() {
             </a>
             <Link
               to="/contact"
+              state={{ tab: "quote" }}
               data-testid="navbar-cta-quote"
               className={`hidden md:inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-bold tracking-wide rounded-full transition-colors ${
                 lightOnDark
@@ -132,6 +133,7 @@ export default function Navbar() {
                 </a>
                 <Link
                   to="/contact"
+                  state={{ tab: "quote" }}
                   data-testid="mobile-cta-quote"
                   className="inline-flex items-center justify-center gap-2 bg-[#072B61] text-white px-4 py-3 text-sm font-bold rounded-full"
                 >

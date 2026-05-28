@@ -16,8 +16,11 @@ export default function Home() {
 
   return (
     <div data-testid="home-page">
-      {/* HERO */}
-      <section className="relative min-h-[100vh] overflow-hidden bg-[#072B61] noise-overlay">
+      {/* FULL-WIDTH HERO SLIDER (ABOVE EVERYTHING) */}
+      <HomeSlider />
+
+      {/* HERO TEXT SECTION */}
+      <section className="relative overflow-hidden bg-[#072B61] noise-overlay">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1759802805758-054116467e0a?crop=entropy&cs=srgb&fm=jpg&q=85&w=2400"
@@ -27,7 +30,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-[#072B61]/85 via-[#072B61]/60 to-[#072B61]/95" />
         </div>
 
-        <div className="relative pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
+        <div className="relative pt-28 md:pt-32 pb-20 md:pb-24 px-6 md:px-12 lg:px-24">
           <div className="grid lg:grid-cols-12 gap-10 items-end">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -49,7 +52,7 @@ export default function Home() {
                 <p className="text-base md:text-lg text-white font-bold tracking-wide">{COMPANY.heroSignoff}</p>
               </div>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link to="/contact" data-testid="hero-cta-quote" className="inline-flex items-center gap-2 bg-[#072B61] hover:bg-[#051E47] text-white px-7 py-4 font-bold rounded-full transition-colors">
+                <Link to="/contact" state={{ tab: "quote" }} data-testid="hero-cta-quote" className="inline-flex items-center gap-2 bg-[#072B61] hover:bg-[#051E47] text-white px-7 py-4 font-bold rounded-full transition-colors">
                   Request a Quote <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link to="/products" data-testid="hero-cta-products" className="inline-flex items-center gap-2 glass-dark text-white px-7 py-4 font-bold rounded-full hover:bg-white/10 transition-colors">
@@ -101,8 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES SLIDER (above Who We Are) */}
-      <HomeSlider />
+      {/* SERVICES SLIDER moved above hero */}
 
       {/* WHO WE ARE */}
       <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
@@ -285,7 +287,7 @@ export default function Home() {
               <p className="text-white/70 mt-5 max-w-lg">Send us your drawings or a brief and our engineers will revert with feasibility, lead time and a competitive quote.</p>
             </div>
             <div className="flex flex-wrap gap-4 lg:justify-end">
-              <Link to="/contact" data-testid="bottom-cta-quote" className="inline-flex items-center gap-2 bg-[#072B61] hover:bg-[#051E47] text-white px-7 py-4 font-bold rounded-full transition-colors">
+              <Link to="/contact" state={{ tab: "quote" }} data-testid="bottom-cta-quote" className="inline-flex items-center gap-2 bg-[#072B61] hover:bg-[#051E47] text-white px-7 py-4 font-bold rounded-full transition-colors">
                 Request a Quote <ArrowRight className="w-4 h-4" />
               </Link>
               <a href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`} data-testid="bottom-cta-call" className="inline-flex items-center gap-2 glass-dark text-white px-7 py-4 font-bold rounded-full hover:bg-white/10 transition-colors">

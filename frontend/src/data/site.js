@@ -27,7 +27,8 @@ export const COMPANY = {
   whatsapp: ["917066004545", "919822754545"],
   emails: ["sales.revanthconcrete@gmail.com"],
   website: "www.revanthconcrete.com",
-  mapsEmbed: "https://www.google.com/maps?q=Dhayari,Pune,411041&output=embed",
+  mapsEmbed: "https://www.google.com/maps?q=Gopibhagwant+First+Floor,+Raykar+Mala+Rd,+Mahadev+Nagar,+Dhayari,+Pune,+Maharashtra+411041&output=embed&z=16",
+  mapsLink: "https://share.google/ZAPUEY6K2WGXmVJWH",
 };
 
 export const COMPANY_LEGAL = [
