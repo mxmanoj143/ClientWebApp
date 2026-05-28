@@ -141,18 +141,21 @@ export default function CategoryPage() {
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
           {category.products.map((p) => (
-            <button
+            <div
               key={p.id}
+              role="button"
+              tabIndex={0}
               onClick={() => { setActiveId(p.id); window.scrollTo({ top: 380, behavior: "smooth" }); }}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActiveId(p.id); window.scrollTo({ top: 380, behavior: "smooth" }); } }}
               data-testid={`grid-card-${p.id}`}
-              className="text-left bg-white border border-[#B0B7C3] rounded-2xl overflow-hidden product-card-hover"
+              className="text-left bg-white border border-[#B0B7C3] rounded-2xl overflow-hidden product-card-hover cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#072B61]"
             >
               <ProductImage productId={p.id} productName={p.name} className="aspect-[4/3]" roundedClass="rounded-none" />
               <div className="p-5">
                 <h4 className="font-display font-black text-lg text-[#072B61] leading-tight">{p.name}</h4>
                 <p className="text-[#475569] text-xs mt-1 leading-relaxed">{p.short}</p>
               </div>
-            </button>
+            </div>
           ))}
         </div>
       </section>
