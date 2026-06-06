@@ -19,6 +19,12 @@ Home (hero slider + categories), About, Services, Products (40 SKUs in categorie
 - `POST /api/career` — career application → Resend + Mongo
 
 ## Completed (Feb 2026)
+- 2026-02-28: RCC Bollards — swapped to 5 dedicated `RCC_Bollards_1..5.jpeg` photos
+- 2026-02-28: Added new product **Road Barrier** under Traffic & Road Safety, with `Road-Barrier-1/2.jpeg`
+- 2026-02-28: RCC Fountain — replaced placeholder planter images with 3 dedicated `RCC_Fountain_1..3.jpeg`
+- 2026-02-28: RCC Fencing Poles heights updated to "3 m, 4 m, 5 m, 6 m, 7 m, Custom Heights Available"
+- 2026-02-28: Home "Direct Line" card — improved contrast (icons + labels + Send-a-brief now navy `#072B61` on glass card)
+- 2026-02-28: Contact page hours updated to "Mon – Sat · 9:00 AM to 7:00 PM IST"
 - 2026-02-28: Renamed "RCC Prestress Compound Wall" → "RCC Grill Compound Wall"; swapped images to 6 dedicated `RCC_Grill_Compound_Wall_1..6.jpeg` photos
 - 2026-02-28: RCC Fencing Poles now uses 4 dedicated `RCC_Fencing_Poles_1..4.jpeg` photos
 - 2026-02-28: RCC Planters: appended 4 new `RCC_Planters_1..4.jpeg` photos to existing gallery

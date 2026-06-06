@@ -68,21 +68,21 @@ export default function Home() {
               className="lg:col-span-4"
             >
               <div className="glass rounded-2xl p-6">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-[#B0B7C3] font-bold">Direct Line</div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-[#072B61] font-bold">Direct Line</div>
                 <div className="font-display font-black text-2xl text-[#072B61] mt-2">Talk to engineering</div>
                 <div className="mt-4 space-y-3">
                   {COMPANY.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="flex items-center gap-3 text-[#072B61] hover:text-[#B0B7C3]">
-                      <Phone className="w-4 h-4 text-[#B0B7C3]" />
+                    <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="flex items-center gap-3 text-[#072B61] hover:text-[#475569]">
+                      <Phone className="w-4 h-4 text-[#072B61]" />
                       <span className="font-bold">{p}</span>
                     </a>
                   ))}
-                  <a href={`mailto:${COMPANY.emails[0]}`} className="flex items-center gap-3 text-[#072B61] hover:text-[#B0B7C3]">
-                    <Mail className="w-4 h-4 text-[#B0B7C3]" />
+                  <a href={`mailto:${COMPANY.emails[0]}`} className="flex items-center gap-3 text-[#072B61] hover:text-[#475569]">
+                    <Mail className="w-4 h-4 text-[#072B61]" />
                     <span className="font-bold break-all text-sm">{COMPANY.emails[0]}</span>
                   </a>
                 </div>
-                <Link to="/contact" data-testid="hero-card-cta" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#B0B7C3]">
+                <Link to="/contact" data-testid="hero-card-cta" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#072B61] hover:text-[#475569]">
                   Send a brief <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

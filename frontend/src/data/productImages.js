@@ -83,6 +83,13 @@ export const PRODUCT_IMAGES = {
     `${P}Normal-Champher-Kerb-1.jpeg`,
   ],
   "rcc-bollards": [
+    `${P}RCC_Bollards_1.jpeg`,
+    `${P}RCC_Bollards_2.jpeg`,
+    `${P}RCC_Bollards_3.jpeg`,
+    `${P}RCC_Bollards_4.jpeg`,
+    `${P}RCC_Bollards_5.jpeg`,
+  ],
+  "road-barrier": [
     `${P}Road-Barrier-1.jpeg`,
     `${P}Road-Barrier-2.jpeg`,
   ],
@@ -118,8 +125,9 @@ export const PRODUCT_IMAGES = {
     `${P}RCC_Planters_4.jpeg`,
   ],
   "rcc-fountain": [
-    `${P}RCC-Planter-1.jpeg`,
-    `${P}RCC-Planter-2.jpeg`,
+    `${P}RCC_Fountain_1.jpeg`,
+    `${P}RCC_Fountain_2.jpeg`,
+    `${P}RCC_Fountain_3.jpeg`,
   ],
   "rcc-baluster": [
     `${P}RCC-Baluster-1.jpeg`,
