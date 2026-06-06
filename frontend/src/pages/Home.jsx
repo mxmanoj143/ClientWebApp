@@ -7,7 +7,7 @@ import {
 import { useState } from "react";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 import HomeSlider from "@/components/HomeSlider";
-import { COMPANY, SERVICES, PRODUCTS, FAQS, WHY_US } from "@/data/site";
+import { COMPANY, SERVICES, FAQS, WHY_US } from "@/data/site";
 
 const ICONS = { Package, HardHat, ClipboardList, ShieldCheck, Truck, Wrench, Leaf, MapPin, Handshake };
 
@@ -175,41 +175,6 @@ export default function Home() {
             );
           })}
         </Stagger>
-      </section>
-
-      {/* PRODUCT CATEGORIES */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[#072B61] text-white noise-overlay">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-          <div>
-            <div className="text-xs uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">Catalogue</div>
-            <h2 className="font-display font-black text-4xl md:text-5xl mt-4 max-w-2xl leading-[1.05]">
-              A complete catalogue of precast solutions.
-            </h2>
-          </div>
-          <Link to="/products" className="text-sm font-bold text-white hover:text-[#072B61] inline-flex items-center gap-2" data-testid="products-see-all">
-            View all products <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {PRODUCTS.slice(0, 8).map((p) => (
-            <Link
-              to={`/products/${p.categorySlug}`}
-              key={p.id}
-              data-testid={`product-tile-${p.id}`}
-              className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-white/5 border border-white/10"
-            >
-              <img src={p.img} alt={p.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#072B61] via-[#072B61]/30 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-[#E2E8F0] font-bold">{p.category}</div>
-                <div className="font-display font-black text-white text-lg mt-1 leading-tight">{p.name}</div>
-              </div>
-              <div className="absolute top-4 right-4 w-9 h-9 bg-[#072B61] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <ArrowUpRight className="w-4 h-4 text-white" />
-              </div>
-            </Link>
-          ))}
-        </div>
       </section>
 
       {/* WHY US */}

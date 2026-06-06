@@ -19,10 +19,15 @@ Home (hero slider + categories), About, Services, Products (40 SKUs in categorie
 - `POST /api/career` — career application → Resend + Mongo
 
 ## Completed (Feb 2026)
+- 2026-02-28: Removed the Home page "Catalogue" / product-tiles section per request
+- 2026-02-28: Renamed "Soak Pit Chamber" → "Soak Pit Tank" (id kept as `soak-pit-chamber` for stable URL); now uses dedicated Soak_Pit_Tank_1/2 images
+- 2026-02-28: Earthpit Chamber now uses 5 dedicated photos (Earthpit_Chamber_1..5); old RCC-Chamber-Cover-1/2 references removed from this product (still available for other products if needed)
+- 2026-02-28: Grass Pavers wired to real Grass-Paver-1/2 images supplied by user
+- 2026-02-28: Verified production build (CRA `yarn build`) succeeds; brochure.pdf (16.5 MB) and 117 product assets bundled cleanly under `/assets/`
 - 2026-02-28: Fixed Home slider top-crop (`pt-20 sm:pt-24` so hero image isn't hidden behind fixed navbar)
-- 2026-02-28: Fixed Gallery page — now renders 127 product images via `buildGallery()` over `PRODUCTS` + `getProductImages()`
+- 2026-02-28: Fixed Gallery page — now renders 127+ product images via `buildGallery()` over `PRODUCTS` + `getProductImages()`
 - 2026-02-28: Added "Product Brochure" button on Home bottom CTA linking to Google Drive
-- 2026-02-28: Split "Grass Pavers" into two products: `set-of-5` (Set of 5) and `grass-pavers` (Grass Pavers); both temporarily share Set-Of-5 images until dedicated grass-paver photos are supplied
+- 2026-02-28: Split "Grass Pavers" into two products: `set-of-5` (Set of 5) and `grass-pavers` (Grass Pavers)
 - 2026-02-28: Removed `RCC-Hume-Pipe-4.jpeg` from the hume-pipes image mapping
 - 2026-02-28: Fixed syntax error in `productImages.js` (stray duplicate `getProductImages` export line)
 - Earlier: Resend email integration, Theme overhaul (Navy + Silver), Bundled product images, Removed image uploader (deployment-safe), WhatsApp click-to-chat

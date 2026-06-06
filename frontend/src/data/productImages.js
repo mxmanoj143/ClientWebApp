@@ -198,8 +198,8 @@ export const PRODUCT_IMAGES = {
     `${P}FRP-Toilet-With-Water-Tank-1.jpeg`,
   ],
   "soak-pit-chamber": [
-    `${P}RCC-Septic-Tank-1.jpeg`,
-    `${P}RCC-Septic-Tank-2.jpeg`,
+    `${P}Soak_Pit_Tank_1.jpeg`,
+    `${P}Soak_Pit_Tank_2.jpeg`,
   ],
   "rcc-water-tank": [
     `${P}FRP-Toilet-With-Water-Tank-1.jpeg`,
@@ -214,8 +214,11 @@ export const PRODUCT_IMAGES = {
     `${P}RCC-PEDESTAL-4.jpeg`,
   ],
   "earthpit-chamber": [
-    `${P}RCC-Chamber-Cover-1.jpeg`,
-    `${P}RCC-Chamber-Cover-2.jpeg`,
+    `${P}Earthpit_Chamber_1.jpeg`,
+    `${P}Earthpit_Chamber_2.jpeg`,
+    `${P}Earthpit_Chamber_3.jpeg`,
+    `${P}Earthpit_Chamber_4.jpeg`,
+    `${P}Earthpit_Chamber_5.jpeg`,
   ],
   "cable-trench-cover": [
     `${P}RCC-Trench-Cover-1.jpeg`,

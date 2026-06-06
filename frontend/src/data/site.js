@@ -308,7 +308,7 @@ export const CATEGORIES = [
         specs: [{ label: "Types", values: ["Indian seat", "Western seat", "Combo"] }],
         features: ["One-piece FRP shell", "Weather & rust proof", "Modular & craneable"],
         applications: ["Construction sites", "Public events", "Highway rest areas"] },
-      { id: "soak-pit-chamber", name: "Soak Pit Chamber", short: "Sub-surface effluent dispersion",
+      { id: "soak-pit-chamber", name: "Soak Pit Tank", short: "Sub-surface effluent dispersion",
         desc: "Precast soak pit chambers for sub-surface dispersion of treated septic effluent, complementing on-site sewage treatment systems.",
         specs: [{ label: "Diameter", values: ["900 mm", "1200 mm", "1500 mm"] }],
         features: ["Perforated wall design", "Easy installation", "Long service life"],
