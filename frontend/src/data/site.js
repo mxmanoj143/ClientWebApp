@@ -289,7 +289,7 @@ export const CATEGORIES = [
         applications: ["Large industrial perimeters", "Solar parks", "Long boundary runs"] },
       { id: "rcc-fencing-poles", name: "RCC Fencing Poles", short: "Concrete fencing posts",
         desc: "Reinforced concrete fencing poles manufactured to support chain-link, barbed-wire or mesh fencing systems around farms, factories and plots.",
-        specs: [{ label: "Heights", values: ["3 m", "4 m", "5 m", "6 m", "7 m", "Custom Heights Available"] }],
+        specs: [{ label: "Heights", values: ["2 m", "2.5 m", "3 m", "4 m", "5 m", "6 m", "7 m", "Custom Heights Available"] }],
         features: ["Reinforced for flexural strength", "Pre-formed wire holes", "Rust & termite proof"],
         applications: ["Farms", "Factory perimeters", "Solar parks", "Residential plots"] },
     ],
