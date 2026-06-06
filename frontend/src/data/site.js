@@ -277,7 +277,7 @@ export const CATEGORIES = [
         specs: [{ label: "Heights", values: ["1.5 m", "2 m", "2.5 m", "3 m"] }],
         features: ["Stack-and-lock installation", "Decorative caps & finials", "Fire & termite proof"],
         applications: ["Industrial plots", "Townships", "Farms", "Solar parks"] },
-      { id: "prestress-compound-wall", name: "RCC Prestress Compound Wall", short: "High-strength prestressed panels",
+      { id: "prestress-compound-wall", name: "RCC Grill Compound Wall", short: "High-strength prestressed panels",
         desc: "Prestressed concrete compound wall panels offer higher span-to-depth ratios and superior structural performance for long-run boundary applications.",
         specs: [{ label: "Heights", values: ["1.8 m – 3.5 m"] }],
         features: ["Prestressed for higher strength", "Longer panel spans", "Reduced post quantity"],

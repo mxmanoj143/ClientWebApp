@@ -19,6 +19,11 @@ Home (hero slider + categories), About, Services, Products (40 SKUs in categorie
 - `POST /api/career` — career application → Resend + Mongo
 
 ## Completed (Feb 2026)
+- 2026-02-28: Renamed "RCC Prestress Compound Wall" → "RCC Grill Compound Wall"; swapped images to 6 dedicated `RCC_Grill_Compound_Wall_1..6.jpeg` photos
+- 2026-02-28: RCC Fencing Poles now uses 4 dedicated `RCC_Fencing_Poles_1..4.jpeg` photos
+- 2026-02-28: RCC Planters: appended 4 new `RCC_Planters_1..4.jpeg` photos to existing gallery
+- 2026-02-28: U Trenches: removed `RCC-U-Trench-1.jpeg`
+- 2026-02-28: Paver Blocks: replaced `Paver-Stock-2.jpeg` asset (same filename, new content)
 - 2026-02-28: Removed the Home page "Catalogue" / product-tiles section per request
 - 2026-02-28: Renamed "Soak Pit Chamber" → "Soak Pit Tank" (id kept as `soak-pit-chamber` for stable URL); now uses dedicated Soak_Pit_Tank_1/2 images
 - 2026-02-28: Earthpit Chamber now uses 5 dedicated photos (Earthpit_Chamber_1..5); old RCC-Chamber-Cover-1/2 references removed from this product (still available for other products if needed)

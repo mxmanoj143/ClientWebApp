@@ -21,7 +21,6 @@ export const PRODUCT_IMAGES = {
     `${P}Kerb-With-Saucer-2.jpeg`,
   ],
   "u-trenches": [
-    `${P}RCC-U-Trench-1.jpeg`,
     `${P}RCC-U-Trench-2.jpeg`,
     `${P}RCC-U-Trench-3.jpeg`,
     `${P}RCC-U-Trench-4.jpeg`,
@@ -113,6 +112,10 @@ export const PRODUCT_IMAGES = {
   "rcc-planters": [
     `${P}RCC-Planter-1.jpeg`,
     `${P}RCC-Planter-2.jpeg`,
+    `${P}RCC_Planters_1.jpeg`,
+    `${P}RCC_Planters_2.jpeg`,
+    `${P}RCC_Planters_3.jpeg`,
+    `${P}RCC_Planters_4.jpeg`,
   ],
   "rcc-fountain": [
     `${P}RCC-Planter-1.jpeg`,
@@ -173,12 +176,18 @@ export const PRODUCT_IMAGES = {
     `${P}Precast-Wall-4.jpeg`,
   ],
   "prestress-compound-wall": [
-    `${P}Precast-Wall-3.jpeg`,
-    `${P}Precast-Wall-4.jpeg`,
+    `${P}RCC_Grill_Compound_Wall_1.jpeg`,
+    `${P}RCC_Grill_Compound_Wall_2.jpeg`,
+    `${P}RCC_Grill_Compound_Wall_3.jpeg`,
+    `${P}RCC_Grill_Compound_Wall_4.jpeg`,
+    `${P}RCC_Grill_Compound_Wall_5.jpeg`,
+    `${P}RCC_Grill_Compound_Wall_6.jpeg`,
   ],
   "rcc-fencing-poles": [
-    `${P}Precast-Wall-1.jpeg`,
-    `${P}Precast-Wall-2.jpeg`,
+    `${P}RCC_Fencing_Poles_1.jpeg`,
+    `${P}RCC_Fencing_Poles_2.jpeg`,
+    `${P}RCC_Fencing_Poles_3.jpeg`,
+    `${P}RCC_Fencing_Poles_4.jpeg`,
   ],
 
   // ---------------- Sanitation Solutions ----------------
