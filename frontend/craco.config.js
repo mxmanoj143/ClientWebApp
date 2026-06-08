@@ -2,6 +2,27 @@
 const path = require("path");
 require("dotenv").config();
 
+// ---------------------------------------------------------------------------
+// Node 22/24 compatibility shim:
+// react-scripts unconditionally requires ForkTsCheckerWebpackPlugin even when
+// the project has no TypeScript. Its bundled ajv-keywords@3 / schema-utils@2
+// chain throws on Node 22+. Since this project is pure JS, we redirect those
+// `require()` calls to a no-op plugin BEFORE webpack.config is evaluated.
+// ---------------------------------------------------------------------------
+const Module = require("module");
+const _origResolve = Module._resolveFilename;
+const NOOP_PLUGIN = path.join(__dirname, "plugins", "noop-plugin.js");
+Module._resolveFilename = function (request, ...rest) {
+  if (
+    request === "react-dev-utils/ForkTsCheckerWebpackPlugin" ||
+    request === "react-dev-utils/ForkTsCheckerWarningWebpackPlugin" ||
+    request === "fork-ts-checker-webpack-plugin"
+  ) {
+    return NOOP_PLUGIN;
+  }
+  return _origResolve.call(this, request, ...rest);
+};
+
 // Check if we're in development/preview mode (not production build)
 // Craco sets NODE_ENV=development for start, NODE_ENV=production for build
 const isDevServer = process.env.NODE_ENV !== "production";
