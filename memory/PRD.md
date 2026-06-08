@@ -19,6 +19,13 @@ Home (hero slider + categories), About, Services, Products (40 SKUs in categorie
 - `POST /api/career` — career application → Resend + Mongo
 
 ## Completed (Feb 2026)
+- 2026-02-28: **Migrated to fully independent Vercel architecture** — site no longer depends on Emergent:
+  - Created 3 Vercel Serverless Functions at `/app/frontend/api/`: `contact.js`, `quote.js`, `career.js` (+ shared `_email.js` helper)
+  - All forms now send directly to Resend → user's email; no database
+  - `lib/api.js` changed to use relative `/api/*` paths (works on both Vercel and the existing Emergent preview backend)
+  - Stripped Emergent badge, PostHog tracking, and `emergent-main.js` from `index.html`
+  - Wrote `/app/DEPLOYMENT.md` with step-by-step Vercel deploy guide
+  - Old FastAPI backend (`/app/backend/`) remains but is unused in production; can be deleted
 - 2026-02-28: RCC Bollards — swapped to 5 dedicated `RCC_Bollards_1..5.jpeg` photos
 - 2026-02-28: Added new product **Road Barrier** under Traffic & Road Safety, with `Road-Barrier-1/2.jpeg`
 - 2026-02-28: RCC Fountain — replaced placeholder planter images with 3 dedicated `RCC_Fountain_1..3.jpeg`

@@ -1,7 +1,10 @@
 import axios from "axios";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-export const API = `${BACKEND_URL}/api`;
+// Relative path — works on:
+//   • Vercel (serverless functions live at same origin under /api/*)
+//   • Emergent preview (ingress routes /api/* to the FastAPI backend)
+// No env var dependency; site is fully portable.
+export const API = "/api";
 
 export const apiClient = axios.create({
   baseURL: API,
